@@ -42,6 +42,25 @@ is repeated as many times as necessary.
 
 Further documentation would be found at the [Github wiki of this project][1]
 
+Installation
+------------
+
+The installation is pretty straightforward:
+
+1. Get the last stable version and put it in an accessible directory (e.g.
+   vendors);
+2. copy the file EnunciableWordGeneratorConfiguration.php.default into
+   EnunciableWordGeneratorConfiguration.php;
+3. make the change you want in EnunciableWordGeneratorConfiguration.php.
+
+### Testing
+
+EnunciableWordGenerator is developed using [PHPUnit][3] (3.5), so you must have
+it in your includes directory (for example using PEAR).
+
+Once PHPUnit installed, you must run it in the root directory, calling the
+tests located in /test/.
+
 Contributing
 ------------
 
@@ -55,3 +74,4 @@ Contributing
 
 [1]: https://github.com/gnugat/EnunciableWordGenerator/wiki
 [2]: https://github.com/gnugat/EnunciableWordGenerator/issues
+[3]: https://github.com/sebastianbergmann/phpunit/
