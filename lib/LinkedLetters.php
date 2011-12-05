@@ -15,4 +15,16 @@ class LinkedLetters {
 
         return $pickedLetter;
     }
+
+    public function pickLinkedLetter($letter) {
+        $choiceOfLetters = $this->letters[$letter];
+
+        $minLetterIndex = 0;
+        $maxLetterIndex = strlen($choiceOfLetters) - 1;
+        $pickedLetterIndex = rand($minLetterIndex, $maxLetterIndex);
+
+        $pickedLetter = $choiceOfLetters[$pickedLetterIndex];
+
+        return $pickedLetter;
+    }
 }
