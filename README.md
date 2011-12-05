@@ -61,7 +61,9 @@ EnunciableWordGenerator is developed using [PHPUnit][3] (3.5), so you must have
 it in your includes directory (for example using PEAR).
 
 Once PHPUnit installed, you must run it in the root directory, calling the
-tests located in /test/.
+tests located in /test/:
+
+    phpunit ./test
 
 Contributing
 ------------
