@@ -1,5 +1,5 @@
 <?php
-require '../EnunciableWordGenerator.php';
+require './EnunciableWordGenerator.php';
 
 class EnunciableWordGeneratorTest extends PHPUnit_Framework_TestCase {
     public function testLength() {
@@ -15,5 +15,14 @@ class EnunciableWordGeneratorTest extends PHPUnit_Framework_TestCase {
             $this->assertEquals($length, strlen($generatedWord));
             $length++;
         }
+    }
+
+    public function testPreconfiguredLength() {
+        $configuration = new EnunciableWordGeneratorConfiguration();
+        $enunciableWordGenerator = new EnunciableWordGenerator();
+
+        $generatedWord = $enunciableWordGenerator->generate();
+
+        $this->assertEquals($configuration->length, strlen($generatedWord));
     }
 }
