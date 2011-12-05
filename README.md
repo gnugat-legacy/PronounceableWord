@@ -4,6 +4,8 @@ Enunciable Word Generator
 A PHP library generating random and (english) enunciable words without using
 dictionaries or Markov chains.
 
+Currently under development.
+
 Usage
 -----
 
