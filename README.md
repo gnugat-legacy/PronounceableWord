@@ -33,9 +33,10 @@ Basically, the library will generate a word following these rules:
 3. choose randomly a linked letter;
 4. choose randomly a linked letter, of different type if consecutive.
 
-Where "types" would be voyels and consonants and "consecutive" would be a group
-of two letters from the same "type". The step 4 is repeated as many times as
-necessary.
+Where "linked letter" is an arbitrary chosen letter that is expected to follow
+well the previous letter, "types" would be voyels and consonants and
+"consecutive" would be a group of two letters from the same "type". The step 4
+is repeated as many times as necessary.
 
 Further documentation would be found at the [Github wiki of this project][1]
 
@@ -51,4 +52,4 @@ Contributing
 
 
 [1]: https://github.com/gnugat/EnunciableWordGenerator/wiki
-[2]: http://github.com/github/markup/issues
+[2]: https://github.com/gnugat/EnunciableWordGenerator/issues
