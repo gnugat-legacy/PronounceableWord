@@ -1,5 +1,5 @@
 <?php
-require './lib/LinkedLetters.php';
+require_once './lib/LinkedLetters.php';
 
 class LinkedLettersTest extends PHPUnit_Framework_TestCase {
     public function testPickLetter() {

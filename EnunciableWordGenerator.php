@@ -1,5 +1,5 @@
 <?php
-require './config/EnunciableWordGeneratorConfiguration.php';
+require_once './config/EnunciableWordGeneratorConfiguration.php';
 
 class EnunciableWordGenerator {
     public $length;

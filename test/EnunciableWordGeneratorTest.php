@@ -1,5 +1,5 @@
 <?php
-require './EnunciableWordGenerator.php';
+require_once './EnunciableWordGenerator.php';
 
 class EnunciableWordGeneratorTest extends PHPUnit_Framework_TestCase {
     public function testLength() {
