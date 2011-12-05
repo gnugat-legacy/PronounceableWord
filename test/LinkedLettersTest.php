@@ -24,11 +24,7 @@ class LinkedLettersTest extends PHPUnit_Framework_TestCase {
                 $chosenLinkedLetter = $linkedLetters->pickLinkedLetter($currentLetter);
                 $isChosenLetterValid = strpos($currentLinkedLetters, $chosenLinkedLetter);
 
-                if (false !== $isChosenLetterValid) {
-                    $isChosenLetterValid = true;
-                }
-
-                $this->assertTrue($isChosenLetterValid);
+                $this->assertNotEquals(false, $isChosenLetterValid);
             }
         }
     }
