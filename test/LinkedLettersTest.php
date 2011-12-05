@@ -14,4 +14,19 @@ class LinkedLettersTest extends PHPUnit_Framework_TestCase {
             $this->assertEquals(true, $isChosenLetterValid);
         }
     }
+
+    public function testPickLinkedLetter() {
+        $configuration = new EnunciableWordGeneratorConfiguration();
+        $linkedLetters = new LinkedLetters();
+
+        $maximumTestNumber = 1000;
+        foreach ($configuration->letters as $currentLetter => $currentLinkedLetters) {
+            for ($currentTestNumber = 0; $currentTestNumber < $maximumTestNumber; $currentTestNumber++) {
+                $chosenLinkedLetter = $linkedLetters->pickLinkedLetter($currentLetter);
+                $isChosenLetterValid = in_array($chosenLinkedLetter, $currentLinkedLetters);
+
+                $this->assertEquals(true, $isChosenLetterValid);
+            }
+        }
+    }
 }
