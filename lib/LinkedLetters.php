@@ -1,11 +1,11 @@
 <?php
-require_once './config/EnunciableWordGeneratorConfiguration.php';
+require_once './config/LinkedLettersConfiguration.php';
 
 class LinkedLetters {
     protected $letters;
 
     public function __construct() {
-        $configuration = new EnunciableWordGeneratorConfiguration();
+        $configuration = new LinkedLettersConfiguration();
 
         $this->letters = $configuration->letters;
     }

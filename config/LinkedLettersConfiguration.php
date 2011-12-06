@@ -1,0 +1,30 @@
+<?php
+class LinkedLettersConfiguration {
+    public $letters = array(
+        'a' => 'abcdefhiklmnorstuvwxyz',
+        'b' => 'abeiloruy',
+        'c' => 'acehikloruy',
+        'd' => 'aegilmnorsuy',
+        'e' => 'abcdegiklmnoprstvwxy',
+        'f' => 'aeilry',
+        'g' => 'aeghiloruwy',
+        'h' => 'aeiouy',
+        'i' => 'acdefglmnopqrstvxz',
+        'j' => 'aeou',
+        'k' => 'aeiruy',
+        'l' => 'abcdefghijklmnoprstuvwxyz',
+        'm' => 'abeimosuy',
+        'n' => 'adeilnorsty',
+        'o' => 'abcdefghiklmnoprstuwy',
+        'p' => 'aehilort',
+        'r' => 'acdegiklmnoprsuvy',
+        's' => 'acehilopstuy',
+        't' => 'aehinortuwy',
+        'u' => 'abcdefgklmnprst',
+        'v' => 'aeio',
+        'w' => 'aehinory',
+        'x' => 'aiu',
+        'y' => 'acdelnorstz',
+        'z' => 'aioyz',
+    );
+}

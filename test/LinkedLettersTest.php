@@ -3,7 +3,7 @@ require_once './lib/LinkedLetters.php';
 
 class LinkedLettersTest extends PHPUnit_Framework_TestCase {
     public function testPickLetter() {
-        $configuration = new EnunciableWordGeneratorConfiguration();
+        $configuration = new LinkedLettersConfiguration();
         $linkedLetters = new LinkedLetters();
 
         $maximumTestNumber = 1000;
@@ -15,7 +15,7 @@ class LinkedLettersTest extends PHPUnit_Framework_TestCase {
     }
 
     public function testPickLinkedLetter() {
-        $configuration = new EnunciableWordGeneratorConfiguration();
+        $configuration = new LinkedLettersConfiguration();
         $linkedLetters = new LinkedLetters();
 
         $maximumTestNumber = 1000;
