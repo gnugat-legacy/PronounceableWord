@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-require_once './lib/LinkedLetters.php';
+require_once dirname(__FILE__) . '/../lib/LinkedLetters.php';
 
 class LinkedLettersTest extends PHPUnit_Framework_TestCase {
     public function testPickLetter() {

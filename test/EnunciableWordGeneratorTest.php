@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-require_once './EnunciableWordGenerator.php';
+require_once dirname(__FILE__) . '/../EnunciableWordGenerator.php';
 
 class EnunciableWordGeneratorTest extends PHPUnit_Framework_TestCase {
     public function testLength() {

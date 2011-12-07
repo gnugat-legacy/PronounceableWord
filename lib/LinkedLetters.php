@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-require_once './config/LinkedLettersConfiguration.php';
+require_once dirname(__FILE__) . '/../config/LinkedLettersConfiguration.php';
 
 class LinkedLetters {
     protected $letters;

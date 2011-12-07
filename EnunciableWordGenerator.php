@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-require_once './config/EnunciableWordGeneratorConfiguration.php';
+require_once dirname(__FILE__) . '/config/EnunciableWordGeneratorConfiguration.php';
 
 class EnunciableWordGenerator {
     public $length;
