@@ -19,7 +19,7 @@ class LinkedLettersTest extends PHPUnit_Framework_TestCase {
         for ($currentTestNumber = 0; $currentTestNumber < $maximumTestNumber; $currentTestNumber++) {
             $chosenLetter = $linkedLetters->pickLetter();
 
-            $this->assertArrayHasKey($chosenLetter, $configuration->letters);
+            $this->assertArrayHasKey($chosenLetter, $configuration->lettersWithLinkedLetters);
         }
     }
 
@@ -28,7 +28,7 @@ class LinkedLettersTest extends PHPUnit_Framework_TestCase {
         $linkedLetters = new LinkedLetters();
 
         $maximumTestNumber = 1000;
-        foreach ($configuration->letters as $currentLetter => $currentLinkedLetters) {
+        foreach ($configuration->lettersWithLinkedLetters as $currentLetter => $currentLinkedLetters) {
             for ($currentTestNumber = 0; $currentTestNumber < $maximumTestNumber; $currentTestNumber++) {
                 $chosenLinkedLetter = $linkedLetters->pickLinkedLetter($currentLetter);
                 $isChosenLetterValid = strpos($currentLinkedLetters, $chosenLinkedLetter);

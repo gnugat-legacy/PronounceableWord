@@ -11,28 +11,28 @@
 require_once dirname(__FILE__) . '/../config/LinkedLettersConfiguration.php';
 
 class LinkedLetters {
-    protected $letters;
+    protected $lettersWithLinkedLetters;
 
     public function __construct() {
         $configuration = new LinkedLettersConfiguration();
 
-        $this->letters = $configuration->letters;
+        $this->lettersWithLinkedLetters = $configuration->lettersWithLinkedLetters;
     }
 
     public function pickLetter() {
-        $pickedLetter = array_rand($this->letters);
+        $pickedLetter = array_rand($this->lettersWithLinkedLetters);
 
         return $pickedLetter;
     }
 
     public function pickLinkedLetter($letter) {
-        $choiceOfLetters = $this->letters[$letter];
+        $linkedLetters = $this->lettersWithLinkedLetters[$letter];
 
         $minLetterIndex = 0;
-        $maxLetterIndex = strlen($choiceOfLetters) - 1;
+        $maxLetterIndex = strlen($linkedLetters) - 1;
         $pickedLetterIndex = rand($minLetterIndex, $maxLetterIndex);
 
-        $pickedLetter = $choiceOfLetters[$pickedLetterIndex];
+        $pickedLetter = $linkedLetters[$pickedLetterIndex];
 
         return $pickedLetter;
     }
