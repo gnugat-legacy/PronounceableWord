@@ -54,9 +54,6 @@ The installation is pretty straightforward:
 2. copy the files ending in "php.default" into "php";
 3. make the change you want in EnunciableWordGeneratorConfiguration.php.
 
-    wget 'https://github.com/gnugat/EnunciableWordGenerator.git';
-    cp ./EnunciableWordGenerator/config/*{.default,};
-
 ### Testing
 
 EnunciableWordGenerator is developed using [PHPUnit][3] (3.5), so you must have
