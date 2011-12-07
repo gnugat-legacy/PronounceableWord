@@ -51,9 +51,11 @@ The installation is pretty straightforward:
 
 1. Get the last stable version and put it in an accessible directory (e.g.
    vendors);
-2. copy the file EnunciableWordGeneratorConfiguration.php.default into
-   EnunciableWordGeneratorConfiguration.php;
+2. copy the files ending in "php.default" into "php";
 3. make the change you want in EnunciableWordGeneratorConfiguration.php.
+
+    wget 'https://gnugat@github.com/gnugat/EnunciableWordGenerator.git'
+    cp ./EnunciableWordGenerator/config/*{.default,}
 
 ### Testing
 
