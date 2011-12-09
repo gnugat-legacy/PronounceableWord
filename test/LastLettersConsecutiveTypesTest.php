@@ -26,5 +26,28 @@ class LastLettersConsecutiveTypesTest extends PHPUnit_Framework_TestCase {
             }
         }
     }
+
+    public function testCountFromWordOfMultipleTypes() {
+        $letterTypesConfiguration = new LetterTypesConfiguration();
+        $lastLettersconsecutiveTypes = new LastLettersConsecutiveTypes();
+
+        foreach ($letterTypesConfiguration->letterTypesWithLetters as $letterType => $letters) {
+            $maximumLetterNumber = strlen($letters);
+
+            foreach ($letterTypesConfiguration->letterTypesWithLetters as $otherLetterType => $otherLetters) {
+                if ($otherLetterType != $letterType) {
+                    $word = $otherLetters;
+                    break;
+                }
+            }
+
+            for ($letterNumber = 1; $letterNumber < $maximumLetterNumber; $letterNumber++) {
+                $letter = rand(0, strlen($letters) - 1);
+                $word .= $letters[$letter];
+
+                $this->assertSame($letterNumber, $lastLettersconsecutiveTypes->countFromWord($word));
+            }
+        }
+    }
 }
 
