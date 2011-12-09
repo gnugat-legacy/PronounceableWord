@@ -32,12 +32,12 @@ Basically, the library will generate a word following these rules:
 
 1. Choose randomly a letter;
 2. choose randomly a linked letter of different type;
-3. choose randomly a linked letter;
-4. choose randomly a linked letter, of different type if consecutive.
+4. choose randomly a linked letter, of different type if the last letter are
+   of consecutive types.
 
 Where "linked letter" is an arbitrary chosen letter that is expected to follow
 well the previous letter, "types" would be voyels and consonants and
-"consecutive" would be a group of two letters from the same "type". The step 4
+"consecutive" would be a group of two letters from the same "type". The step 3
 is repeated as many times as necessary.
 
 Further documentation would be found at the [Github wiki of this project][2]
