@@ -49,8 +49,9 @@ The installation is pretty straightforward:
 
 1. Get the last stable version and put it in an accessible directory (e.g.
    vendors);
-2. copy the files ending in "php.default" into "php";
-3. make the change you want in EnunciableWordGeneratorConfiguration.php.
+2. copy the configuration files ending in "php.default" into "php" (in the
+   config directory);
+3. make the change you want in the classes *Configuration.php to custom.
 
 ### Testing
 
