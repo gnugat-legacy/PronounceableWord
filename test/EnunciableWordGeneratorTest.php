@@ -12,9 +12,8 @@ require_once dirname(__FILE__) . '/../EnunciableWordGenerator.php';
 
 class EnunciableWordGeneratorTest extends PHPUnit_Framework_TestCase {
     public function testGeneratedLength() {
-        $length = 1;
-        $maximumTestNumber = 1000;
-        for ($currentTestNumber = 0; $currentTestNumber < $maximumTestNumber; $currentTestNumber++) {
+        $maximumLength = 1000;
+        for ($length = 1; $length < $maximumLength; $length++) {
             $enunciableWordGenerator = new EnunciableWordGenerator();
 
             $generatedWord = $enunciableWordGenerator->generateWordOfGivenLength($length);
