@@ -11,7 +11,7 @@
 require_once dirname(__FILE__) . '/../lib/LastLettersConsecutiveTypes.php';
 
 class LastLettersConsecutiveTypesTest extends PHPUnit_Framework_TestCase {
-    public function testCountFromWord() {
+    public function testCountFromWordOfOneType() {
         $letterTypesConfiguration = new LetterTypesConfiguration();
         $lastLettersconsecutiveTypes = new LastLettersConsecutiveTypes();
 
