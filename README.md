@@ -17,9 +17,7 @@ Usage
     $length = rand(MINIMUM_LENGTH, MAXIMUM_LENGTH);
 
     $enunciableWordGenerator = new EnunciableWordGenerator();
-    $enunciableWordGenerator->length = $length;
-
-    $generatedWord = $enunciableWordGenerator->generate();
+    $generatedWord = $enunciableWordGenerator->generateWordOfGivenLength($length);
 
 Copyright and License
 ---------------------
