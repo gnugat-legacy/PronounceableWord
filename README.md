@@ -66,15 +66,16 @@ tests located in /test/:
 Contributing
 ------------
 
-1. Fork it;
+1. [Fork it][4];
 2. Create a branch (`git checkout -b my_branch`);
-3. Commit your changes (`git commit -am "Changes"`);
+3. Commit your changes (`git commit -am "Changes description message"`);
 4. Push to the branch (`git push origin my_branch`);
-5. Create an [Issue][4] with a link to your branch;
-6. Wait for it.
+5. Create an [Issue][5] with a link to your branch;
+6. Wait for it to be accepted/argued.
 
 
 [1]: https://github.com/gnugat/EnunciableWordGenerator/blob/master/LICENSE.txt
 [2]: https://github.com/gnugat/EnunciableWordGenerator/wiki
 [3]: https://github.com/sebastianbergmann/phpunit/
-[4]: https://github.com/gnugat/EnunciableWordGenerator/issues
+[4]: https://github.com/gnugat/EnunciableWordGenerator/fork_select
+[5]: https://github.com/gnugat/EnunciableWordGenerator/issues
