@@ -8,20 +8,10 @@
  * file that was distributed with this source code.
  */
 
-require_once dirname(__FILE__) . '/config/EnunciableWordGeneratorConfiguration.php';
-
 class EnunciableWordGenerator {
-    public $length;
-
-    public function __construct() {
-        $configuration = new EnunciableWordGeneratorConfiguration();
-
-        $this->length = $configuration->length;
-    }
-
-    public function generate() {
+    public function generateForGivenLength($givenLength) {
         $word = '';
-        for ($letterNumber = 0; $letterNumber < $this->length; $letterNumber++) {
+        for ($letterNumber = 0; $letterNumber < $givenLength; $letterNumber++) {
             $word .= 'a';
         }
 
