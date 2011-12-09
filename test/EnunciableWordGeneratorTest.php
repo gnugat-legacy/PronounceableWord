@@ -17,7 +17,7 @@ class EnunciableWordGeneratorTest extends PHPUnit_Framework_TestCase {
         for ($currentTestNumber = 0; $currentTestNumber < $maximumTestNumber; $currentTestNumber++) {
             $enunciableWordGenerator = new EnunciableWordGenerator();
 
-            $generatedWord = $enunciableWordGenerator->generateForGivenLength($length);
+            $generatedWord = $enunciableWordGenerator->generateWordOfGivenLength($length);
 
             $this->assertEquals($length, strlen($generatedWord));
             $length++;

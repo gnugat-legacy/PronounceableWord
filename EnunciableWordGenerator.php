@@ -9,7 +9,7 @@
  */
 
 class EnunciableWordGenerator {
-    public function generateForGivenLength($givenLength) {
+    public function generateWordOfGivenLength($givenLength) {
         $word = '';
         for ($letterNumber = 0; $letterNumber < $givenLength; $letterNumber++) {
             $word .= 'a';
