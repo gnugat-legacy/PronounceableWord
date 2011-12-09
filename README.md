@@ -2,7 +2,7 @@ Enunciable Word Generator
 =========================
 
 A light, customizable and simple PHP (>= 5.2) library generating random and
-(english) enunciable words without using dictionaries or Markov chains.
+western enunciable words without using dictionaries or Markov chains.
 
 **Currently under development**.
 
@@ -23,7 +23,7 @@ Copyright and License
 ---------------------
 
 This is the work of Loic Chardonnet, released under MIT License. Read the
-LICENSE.txt file for more information.
+[LICENSE.txt][1] file for more information.
 
 Documentation
 -------------
@@ -40,7 +40,7 @@ well the previous letter, "types" would be voyels and consonants and
 "consecutive" would be a group of two letters from the same "type". The step 4
 is repeated as many times as necessary.
 
-Further documentation would be found at the [Github wiki of this project][1]
+Further documentation would be found at the [Github wiki of this project][2]
 
 Installation
 ------------
@@ -69,10 +69,11 @@ Contributing
 2. Create a branch (`git checkout -b my_branch`);
 3. Commit your changes (`git commit -am "Changes"`);
 4. Push to the branch (`git push origin my_branch`);
-5. Create an [Issue][2] with a link to your branch;
+5. Create an [Issue][4] with a link to your branch;
 6. Wait for it.
 
 
-[1]: https://github.com/gnugat/EnunciableWordGenerator/wiki
-[2]: https://github.com/gnugat/EnunciableWordGenerator/issues
+[1]: https://github.com/gnugat/EnunciableWordGenerator/blob/master/LICENSE.txt
+[2]: https://github.com/gnugat/EnunciableWordGenerator/wiki
 [3]: https://github.com/sebastianbergmann/phpunit/
+[4]: https://github.com/gnugat/EnunciableWordGenerator/issues
