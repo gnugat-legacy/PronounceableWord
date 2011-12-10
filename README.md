@@ -1,5 +1,5 @@
 Pronounceable Word Generator
-=========================
+============================
 
 A light, customizable and simple PHP (>= 5.2) library generating random and
 western pronounceable words without using dictionaries or Markov chains.
