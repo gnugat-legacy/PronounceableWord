@@ -42,6 +42,11 @@ is repeated as many times as necessary.
 
 Further documentation would be found at the [Github wiki of this project][2]
 
+### Warning
+
+Offensive or insulting words might be generated because of the random nature
+of the generator.
+
 Installation
 ------------
 
