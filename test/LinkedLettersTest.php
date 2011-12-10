@@ -31,9 +31,36 @@ class LinkedLettersTest extends PHPUnit_Framework_TestCase {
         foreach ($configuration->lettersWithLinkedLetters as $currentLetter => $currentLinkedLetters) {
             for ($currentTestNumber = 0; $currentTestNumber < $maximumTestNumber; $currentTestNumber++) {
                 $chosenLinkedLetter = $linkedLetters->pickLinkedLetter($currentLetter);
-                $isChosenLetterValid = strpos($currentLinkedLetters, $chosenLinkedLetter);
 
-                $this->assertNotEquals(false, $isChosenLetterValid);
+                $isChosenLetterInLinkedLetters = strpos($currentLinkedLetters, $chosenLinkedLetter);
+
+                $this->assertNotEquals(false, $isChosenLetterInLinkedLetters);
+            }
+        }
+    }
+
+    public function testPickLinkedLetterDifferentFromGivenLetters() {
+        $configuration = new LinkedLettersConfiguration();
+        $linkedLetters = new LinkedLetters();
+
+        $maximumTestNumber = 1000;
+        foreach ($configuration->lettersWithLinkedLetters as $currentLetter => $currentLinkedLetters) {
+            for ($currentTestNumber = 0; $currentTestNumber < $maximumTestNumber; $currentTestNumber++) {
+                $chosenLinkedLetter = $linkedLetters->pickLinkedLetterDifferentFromGivenLetters($currentLetter, $currentLetter);
+
+                $isChosenLetterInLinkedLetters = strpos($currentLinkedLetters, $chosenLinkedLetter);
+
+                $isChosenLetterDifferentThanCurrentLetter = false;
+                if ($chosenLinkedLetter !== $currentLetter) {
+                    $isChosenLetterDifferentThanCurrentLetter = true;
+                }
+
+                $isChosenLetterValid = false;
+                if (false !== $isChosenLetterInLinkedLetters && true === $isChosenLetterDifferentThanCurrentLetter) {
+                    $isChosenLetterValid = true;
+                }
+
+                $this->assertTrue($isChosenLetterValid);
             }
         }
     }
