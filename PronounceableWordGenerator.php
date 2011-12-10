@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the EnunciableWordGenerator library.
+ * This file is part of the PronounceableWordGenerator library.
  *
  * (c) Loic Chardonnet
  *
@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-class EnunciableWordGenerator {
+class PronounceableWordGenerator {
     public function generateWordOfGivenLength($givenLength) {
         $word = '';
         for ($letterNumber = 0; $letterNumber < $givenLength; $letterNumber++) {

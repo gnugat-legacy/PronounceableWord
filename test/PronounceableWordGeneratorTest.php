@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the EnunciableWordGenerator library.
+ * This file is part of the PronounceableWordGenerator library.
  *
  * (c) Loic Chardonnet
  *
@@ -8,15 +8,15 @@
  * file that was distributed with this source code.
  */
 
-require_once dirname(__FILE__) . '/../EnunciableWordGenerator.php';
+require_once dirname(__FILE__) . '/../PronounceableWordGenerator.php';
 
-class EnunciableWordGeneratorTest extends PHPUnit_Framework_TestCase {
+class PronounceableWordGeneratorTest extends PHPUnit_Framework_TestCase {
     public function testGeneratedLength() {
         $maximumLength = 1000;
         for ($length = 1; $length < $maximumLength; $length++) {
-            $enunciableWordGenerator = new EnunciableWordGenerator();
+            $pronounceableWordGenerator = new PronounceableWordGenerator();
 
-            $generatedWord = $enunciableWordGenerator->generateWordOfGivenLength($length);
+            $generatedWord = $pronounceableWordGenerator->generateWordOfGivenLength($length);
 
             $this->assertEquals($length, strlen($generatedWord));
             $length++;

@@ -1,6 +1,6 @@
 <?php
 /*
- * This file is part of the EnunciableWordGenerator library.
+ * This file is part of the PronounceableWordGenerator library.
  *
  * (c) Loic Chardonnet
  *

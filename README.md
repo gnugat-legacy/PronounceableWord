@@ -1,23 +1,23 @@
-Enunciable Word Generator
+Pronounceable Word Generator
 =========================
 
 A light, customizable and simple PHP (>= 5.2) library generating random and
-western enunciable words without using dictionaries or Markov chains.
+western pronounceable words without using dictionaries or Markov chains.
 
 **Currently under development**.
 
 Usage
 -----
 
-    require_once 'EnunciableWordGenerator/EnunciableWordGenerator.php';
+    require_once 'PronounceableWordGenerator/PronounceableWordGenerator.php';
 
     define('MINIMUM_LENGTH', 4);
     define('MAXIMUM_LENGTH', 8);
 
     $length = rand(MINIMUM_LENGTH, MAXIMUM_LENGTH);
 
-    $enunciableWordGenerator = new EnunciableWordGenerator();
-    $generatedWord = $enunciableWordGenerator->generateWordOfGivenLength($length);
+    $pronounceableWordGenerator = new PronounceableWordGenerator();
+    $generatedWord = $pronounceableWordGenerator->generateWordOfGivenLength($length);
 
 Copyright and License
 ---------------------
@@ -55,7 +55,7 @@ The installation is pretty straightforward:
 
 ### Testing
 
-EnunciableWordGenerator is developed using [PHPUnit][3] (3.5), so you must have
+PronounceableWordGenerator is developed using [PHPUnit][3] (3.5), so you must have
 it in your includes directory (for example using PEAR).
 
 Once PHPUnit installed, you must run it in the root directory, calling the
@@ -74,8 +74,8 @@ Contributing
 6. Wait for it to be accepted/argued.
 
 
-[1]: https://github.com/gnugat/EnunciableWordGenerator/blob/master/LICENSE.txt
-[2]: https://github.com/gnugat/EnunciableWordGenerator/wiki
+[1]: https://github.com/gnugat/PronounceableWordGenerator/blob/master/LICENSE.txt
+[2]: https://github.com/gnugat/PronounceableWordGenerator/wiki
 [3]: https://github.com/sebastianbergmann/phpunit/
-[4]: https://github.com/gnugat/EnunciableWordGenerator/fork_select
-[5]: https://github.com/gnugat/EnunciableWordGenerator/issues
+[4]: https://github.com/gnugat/PronounceableWordGenerator/fork_select
+[5]: https://github.com/gnugat/PronounceableWordGenerator/issues
