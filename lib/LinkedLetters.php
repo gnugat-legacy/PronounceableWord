@@ -28,12 +28,33 @@ class LinkedLetters {
     public function pickLinkedLetter($letter) {
         $linkedLetters = $this->lettersWithLinkedLetters[$letter];
 
+        return $this->pickLetterFromGivenLetters($linkedLetters);
+    }
+
+    protected function pickLetterFromGivenLetters($letters) {
         $minLetterIndex = 0;
-        $maxLetterIndex = strlen($linkedLetters) - 1;
+        $maxLetterIndex = strlen($letters) - 1;
         $pickedLetterIndex = rand($minLetterIndex, $maxLetterIndex);
 
-        $pickedLetter = $linkedLetters[$pickedLetterIndex];
+        $pickedLetter = $letters[$pickedLetterIndex];
 
         return $pickedLetter;
+    }
+
+    public function pickLinkedLetterDifferentFromGivenLetters($letter, $letters) {
+        $linkedLetters = $this->lettersWithLinkedLetters[$letter];
+
+        $letterChoices = $this->removeGivenLettersFromGivenLinkedLetters($letters, $linkedLetters);
+
+        return $this->pickLetterFromGivenLetters($letterChoices);
+    }
+
+    protected function removeGivenLettersFromGivenLinkedLetters($letters, $linkedLetters) {
+        $maximumLetterIndex = strlen($letters);
+        for ($letterIndex = 0; $letterIndex < $maximumLetterIndex; $letterIndex++) {
+            $linkedLetters = str_replace($letters[$letterIndex], '', $linkedLetters);
+        }
+
+        return $linkedLetters;
     }
 }
