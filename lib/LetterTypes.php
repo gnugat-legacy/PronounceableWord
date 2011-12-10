@@ -30,4 +30,8 @@ class LetterTypes {
 
         return $type;
     }
+
+    public function getLettersOfGivenType($type) {
+        return $this->letterTypesWithLetters[$type];
+    }
 }
