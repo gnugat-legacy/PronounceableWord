@@ -9,7 +9,7 @@ class LinkedLettersConfiguration {
         'f' => 'aeilry',
         'g' => 'aeghiloruwy',
         'h' => 'aeiouy',
-        'i' => 'acdefglmnopqrstvxz',
+        'i' => 'acdefglmnoprstvxz',
         'j' => 'aeou',
         'k' => 'aeiruy',
         'l' => 'abcdefghijklmnoprstuvwxyz',
