@@ -24,4 +24,14 @@ class LetterTypesTest extends PHPUnit_Framework_TestCase {
             }
         }
     }
+
+    public function testGetLettersOfGivenType() {
+        $configuration = new LetterTypesConfiguration();
+        $letterTypes = new LetterTypes();
+
+        foreach ($configuration->letterTypesWithLetters as $letterType => $letters) {
+            $this->assertSame($letters, $letterTypes->getLettersOfGivenType($letterType));
+            $maximumLetterIndex = strlen($letters);
+        }
+    }
 }
