@@ -12,14 +12,13 @@ require_once dirname(__FILE__) . '/../PronounceableWordGenerator.php';
 
 class PronounceableWordGeneratorTest extends PHPUnit_Framework_TestCase {
     public function testGeneratedLength() {
-        $maximumLength = 1000;
-        for ($length = 1; $length < $maximumLength; $length++) {
+        $maximumLength = 100;
+        for ($length = 1; $length <= $maximumLength; $length++) {
             $pronounceableWordGenerator = new PronounceableWordGenerator();
 
             $generatedWord = $pronounceableWordGenerator->generateWordOfGivenLength($length);
 
             $this->assertEquals($length, strlen($generatedWord));
-            $length++;
         }
     }
 }
