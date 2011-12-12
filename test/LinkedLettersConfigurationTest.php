@@ -28,4 +28,22 @@ class LinkedLettersConfigurationTest extends PHPUnit_Framework_TestCase {
             $this->assertTrue($isInAtLeastOneLinkedLetters);
         }
     }
+
+    public function testAreAllLinkedLettersInLetters() {
+        $configuration = new LinkedLettersConfiguration();
+
+        foreach ($configuration->lettersWithLinkedLetters as $letterToIgnore => $linkedLetters) {
+            $isLinkedLetterInLetters = false;
+            foreach ($configuration->lettersWithLinkedLetters as $letter => $linkedLettersToIgnore) {
+                $isLetterInLinkedLetters = strpos($linkedLetters, $letter);
+
+                if (false !== $isLetterInLinkedLetters) {
+                    $isInAtLeastOneLinkedLetters = true;
+                    break;
+                }
+            }
+
+            $this->assertTrue($isInAtLeastOneLinkedLetters);
+        }
+    }
 }
