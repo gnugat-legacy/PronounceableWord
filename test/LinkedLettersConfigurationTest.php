@@ -11,25 +11,21 @@
 require_once dirname(__FILE__) . '/../config/LinkedLettersConfiguration.php';
 
 class LinkedLettersConfigurationTest extends PHPUnit_Framework_TestCase {
-    public function testAreAllLettersInAllLinkedLetters() {
+    public function testAreAllLettersInAtLeastOneLinkedLetters() {
         $configuration = new LinkedLettersConfiguration();
 
         foreach ($configuration->lettersWithLinkedLetters as $letter => $linkedLettersToIgnore) {
+            $isInAtLeastOneLinkedLetters = false;
             foreach ($configuration->lettersWithLinkedLetters as $letterToIgnore => $linkedLetters) {
-                $isLetterInLinkedLetters = strpos($letter, $linkedLetters);
+                $isLetterInLinkedLetters = strpos($linkedLetters, $letter);
 
-                $isInLettersLinkedLetters = false;
-                if ($letterToIgnore === $letter) {
-                    $isInLettersLinkedLetters = true;
+                if (false !== $isLetterInLinkedLetters) {
+                    $isInAtLeastOneLinkedLetters = true;
+                    break;
                 }
-
-                $isValid = true;
-                if ($isLetterInLinkedLetters === false && $isInLettersLinkedLetters !== true) {
-                    $isValid = true;
-                }
-
-                $this->assertTrue($isValid);
             }
+
+            $this->assertTrue($isInAtLeastOneLinkedLetters);
         }
     }
 }
