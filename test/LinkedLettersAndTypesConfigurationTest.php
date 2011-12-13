@@ -32,7 +32,7 @@ class LinkedLettersAndTypesConfigurationTest extends PHPUnit_Framework_TestCase 
         }
     }
 
-    public function testLettersAtLeastOneLinkedLetterOfDifferentType() {
+    public function testHaveLettersAtLeastOneLinkedLetterOfDifferentType() {
         $linkedLettersconfiguration = new LinkedLettersConfiguration();
         $letterTypeconfiguration = new LetterTypesConfiguration();
         $letterTypes = new LetterTypes();
