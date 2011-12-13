@@ -51,7 +51,7 @@ Installation
 
 The installation is pretty straightforward:
 
-1. Get the last stable version and put it in an accessible directory (e.g.
+1. Get the last stable version from [tags][1] and put it in an accessible directory (e.g.
    vendors);
 2. copy the configuration files ending in "php.default" into "php" (in the
    config directory);
@@ -59,7 +59,7 @@ The installation is pretty straightforward:
 
 ### Testing
 
-PronounceableWordGenerator is developed using [PHPUnit][1] (3.5), so you must have
+PronounceableWordGenerator is developed using [PHPUnit][2] (3.5), so you must have
 it in your includes directory (for example using PEAR).
 
 Once PHPUnit installed, you must run it in the root directory, calling the
@@ -71,24 +71,25 @@ Documentation
 -------------
 
 You can find more documentation at the following links:
-* Copyright and license (MIT): [LICENSE.txt][2];
-* versions and change log: [CHANGELOG.txt][3];
-* technical documentation: [wiki][4].
+* Copyright and license (MIT): [LICENSE.txt][3];
+* versions and change log: [CHANGELOG.txt][4];
+* technical documentation: [wiki][5].
 
 Contributing
 ------------
 
-1. [Fork it][5];
+1. [Fork it][6];
 2. Create a branch (`git checkout -b my_branch`);
 3. Commit your changes (`git commit -am "Changes description message"`);
 4. Push to the branch (`git push origin my_branch`);
-5. Create an [Issue][6] with a link to your branch;
+5. Create an [Issue][7] with a link to your branch;
 6. Wait for it to be accepted/argued.
 
 
-[1]: https://github.com/sebastianbergmann/phpunit/
-[2]: https://github.com/gnugat/PronounceableWordGenerator/blob/master/LICENSE.txt
-[3]: https://github.com/gnugat/PronounceableWordGenerator/blob/master/CHANGELOG.txt
-[4]: https://github.com/gnugat/PronounceableWordGenerator/wiki
-[5]: https://github.com/gnugat/PronounceableWordGenerator/fork_select
-[6]: https://github.com/gnugat/PronounceableWordGenerator/issues
+[1]: https://github.com/gnugat/PronounceableWordGenerator/tags
+[2]: https://github.com/sebastianbergmann/phpunit/
+[3]: https://github.com/gnugat/PronounceableWordGenerator/blob/master/LICENSE.txt
+[4]: https://github.com/gnugat/PronounceableWordGenerator/blob/master/CHANGELOG.txt
+[5]: https://github.com/gnugat/PronounceableWordGenerator/wiki
+[6]: https://github.com/gnugat/PronounceableWordGenerator/fork_select
+[7]: https://github.com/gnugat/PronounceableWordGenerator/issues
