@@ -49,6 +49,10 @@ just edit as you wish the files in the [config][2] directory.
 
 Don't forget to run tests after.
 
+### Tests
+
+Tests are done using [PHPUnit][3] (>=3.5) in the [test][4] directory.
+
 Algorithm
 ---------
 
@@ -73,25 +77,27 @@ Documentation
 
 You can find more documentation at the following links:
 
-* Copyright and MIT license: [LICENSE.txt][3];
-* versions and change log: [CHANGELOG.txt][4];
-* technical documentation: [wiki][5].
+* Copyright and MIT license: [LICENSE.txt][5];
+* versions and change log: [CHANGELOG.txt][6];
+* technical documentation: [wiki][7].
 
 Contributing
 ------------
 
-1. [Fork it][6];
+1. [Fork it][8];
 2. Create a branch (`git checkout -b my_branch`);
 3. Commit your changes (`git commit -am "Changes description message"`);
 4. Push to the branch (`git push origin my_branch`);
-5. Create an [Issue][7] with a link to your branch;
+5. Create an [Issue][9] with a link to your branch;
 6. Wait for it to be accepted/argued.
 
 
 [1]: https://github.com/gnugat/PronounceableWordGenerator/tags
 [2]: https://github.com/gnugat/PronounceableWordGenerator/tree/master/config
-[3]: https://github.com/gnugat/PronounceableWordGenerator/blob/master/LICENSE.txt
-[4]: https://github.com/gnugat/PronounceableWordGenerator/blob/master/CHANGELOG.txt
-[5]: https://github.com/gnugat/PronounceableWordGenerator/wiki
-[6]: https://github.com/gnugat/PronounceableWordGenerator/fork_select
-[7]: https://github.com/gnugat/PronounceableWordGenerator/issues
+[3]: https://github.com/sebastianbergmann/phpunit/
+[4]: https://github.com/gnugat/PronounceableWordGenerator/tree/master/test
+[5]: https://github.com/gnugat/PronounceableWordGenerator/blob/master/LICENSE.txt
+[6]: https://github.com/gnugat/PronounceableWordGenerator/blob/master/CHANGELOG.txt
+[7]: https://github.com/gnugat/PronounceableWordGenerator/wiki
+[8]: https://github.com/gnugat/PronounceableWordGenerator/fork_select
+[9]: https://github.com/gnugat/PronounceableWordGenerator/issues
