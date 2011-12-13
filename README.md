@@ -42,6 +42,13 @@ For now, you should have a fully operationnal generator:
     $generator = new PronounceableWordGenerator();
     $word = $generator->generateWordOfGivenLength($length);
 
+Configuration
+-------------
+
+To customize the algorithm, the letters used, the linked letters or the types,
+just edit as you wish the files in the [config][2] directory.
+
+Don't forget to run tests after.
 
 Algorithm
 ---------
@@ -83,7 +90,7 @@ Contributing
 
 
 [1]: https://github.com/gnugat/PronounceableWordGenerator/tags
-[2]: https://github.com/sebastianbergmann/phpunit/
+[2]: https://github.com/gnugat/PronounceableWordGenerator/tree/master/config
 [3]: https://github.com/gnugat/PronounceableWordGenerator/blob/master/LICENSE.txt
 [4]: https://github.com/gnugat/PronounceableWordGenerator/blob/master/CHANGELOG.txt
 [5]: https://github.com/gnugat/PronounceableWordGenerator/wiki
