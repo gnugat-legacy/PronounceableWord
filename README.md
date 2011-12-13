@@ -67,7 +67,7 @@ Documentation
 
 You can find more documentation at the following links:
 
-* Copyright and license (MIT): [LICENSE.txt][3];
+* Copyright and MIT license : [LICENSE.txt][3];
 * versions and change log: [CHANGELOG.txt][4];
 * technical documentation: [wiki][5].
 
