@@ -13,7 +13,7 @@ of the generator.
 
 **Currently under development**.
 
-Installation and Usage
+Installation and usage
 ----------------------
 
 First, get the last stable version from the [tags][1], and put it in an accessible directory:
