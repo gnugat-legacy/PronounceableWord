@@ -1,0 +1,33 @@
+<?php
+/*
+ * This file is part of the PronounceableWordGenerator library.
+ *
+ * (c) Loic Chardonnet
+ *
+ * For the full copyright and license information, please view the LICENSE.txt
+ * file that was distributed with this source code.
+ */
+
+require_once dirname(__FILE__) . '/../config/LinkedLettersConfiguration.php';
+require_once dirname(__FILE__) . '/../config/LetterTypesConfiguration.php';
+
+class LinkedLettersAndTypesConfigurationTest extends PHPUnit_Framework_TestCase {
+    public function testAreAllLettersFromLinkedLettersInLettersFromLetterTypes() {
+        $linkedLettersconfiguration = new LinkedLettersConfiguration();
+        $letterTypeconfiguration = new LetterTypesConfiguration();
+
+        foreach ($linkedLettersconfiguration->lettersWithLinkedLetters as $letter => $linkedLettersToIgnore) {
+            $isLetterInTypes = false;
+            foreach ($letterTypeconfiguration->letterTypesWithLetters as $lettersOfType) {
+                $isLetterInLetters = strpos($lettersOfType, $letter);
+
+                if (false !== $isLetterInLetters) {
+                    $isLetterInTypes = true;
+                    break;
+                }
+            }
+
+            $this->assertTrue($isLetterInTypes);
+        }
+    }
+}
