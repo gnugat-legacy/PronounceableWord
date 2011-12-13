@@ -13,18 +13,35 @@ of the generator.
 
 **Currently under development**.
 
-Usage
------
+Installation and Usage
+----------------------
 
-    require_once dirname(__FILE__) . '/PronounceableWordGenerator/PronounceableWordGenerator.php';
+First, get the last stable version from the [tags][1], and put it in an accessible directory:
+
+    <?php
+    // File "/index.php".
+    
+    require_once dirname(__FILE__) . '/vendors/PronounceableWordGenerator/PronounceableWordGenerator.php';
+
+Enable configuration files by renaming them, without the ".default" suffix:
+
+    cp ./vendors/PronounceableWordGenerator/*.php{.default,}
+
+For now, you should have a fully operationnal generator:
+
+    <?php
+    // File "/index.php".
+    
+    require_once dirname(__FILE__) . '/vendors/PronounceableWordGenerator/PronounceableWordGenerator.php';
 
     define('MINIMUM_LENGTH', 4);
     define('MAXIMUM_LENGTH', 8);
 
     $length = rand(MINIMUM_LENGTH, MAXIMUM_LENGTH);
 
-    $pronounceableWordGenerator = new PronounceableWordGenerator();
-    $generatedWord = $pronounceableWordGenerator->generateWordOfGivenLength($length);
+    $generator = new PronounceableWordGenerator();
+    $word = $generator->generateWordOfGivenLength($length);
+
 
 Algorithm
 ---------
@@ -44,28 +61,6 @@ Where:
 * "consecutive" would be a group of two letters from the same "type".
 
 The step 3 is repeated as many times as necessary.
-
-
-Installation
-------------
-
-The installation is pretty straightforward:
-
-1. Get the last stable version from [tags][1] and put it in an accessible directory (e.g.
-   vendors);
-2. copy the configuration files ending in "php.default" into "php" (in the
-   config directory);
-3. make the change you want in the classes *Configuration.php to custom.
-
-### Testing
-
-PronounceableWordGenerator is developed using [PHPUnit][2] (3.5), so you must have
-it in your includes directory (for example using PEAR).
-
-Once PHPUnit installed, you must run it in the root directory, calling the
-tests located in /test/:
-
-    phpunit ./test
 
 Documentation
 -------------
