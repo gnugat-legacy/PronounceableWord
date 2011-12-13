@@ -37,7 +37,9 @@ Basically, the library will generate a word following these rules:
    of consecutive types.
 
 Where:
-* "linked letter" is an arbitrary chosen letter that is expected to follow well the previous letter;
+
+* "linked letter" is an arbitrary chosen letter that is expected to follow
+  well the previous letter;
 * "types" would be voyels and consonants;
 * "consecutive" would be a group of two letters from the same "type".
 
