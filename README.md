@@ -33,7 +33,7 @@ Basically, the library will generate a word following these rules:
 
 1. Choose randomly a letter;
 2. choose randomly a linked letter of different type;
-3. choose randomly a linked letter, of different type if the last letter are
+3. choose randomly a linked letter, of different type if the last letter is
    of consecutive types.
 
 Where:
