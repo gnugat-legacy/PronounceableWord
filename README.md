@@ -6,6 +6,11 @@ western pronounceable words without using dictionaries or Markov chains.
 
 This can be useful to generate pronounceable names, passwords and fixtures.
 
+### Warning
+
+Offensive or insulting words might be generated because of the random nature
+of the generator.
+
 **Currently under development**.
 
 Usage
@@ -39,10 +44,6 @@ Where:
 
 The step 3 is repeated as many times as necessary.
 
-### Warning
-
-Offensive or insulting words might be generated because of the random nature
-of the generator.
 
 Installation
 ------------
