@@ -16,7 +16,7 @@ of the generator.
 Usage
 -----
 
-    require_once 'PronounceableWordGenerator/PronounceableWordGenerator.php';
+    require_once dirname(__FILE__) . 'PronounceableWordGenerator/PronounceableWordGenerator.php';
 
     define('MINIMUM_LENGTH', 4);
     define('MAXIMUM_LENGTH', 8);
