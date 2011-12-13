@@ -42,8 +42,7 @@ For now, you should have a fully operationnal generator:
     $generator = new PronounceableWordGenerator();
     $word = $generator->generateWordOfGivenLength($length);
 
-Configuration
--------------
+### Configuration
 
 To customize the algorithm, the letters used, the linked letters or the types,
 just edit as you wish the files in the [config][2] directory.
