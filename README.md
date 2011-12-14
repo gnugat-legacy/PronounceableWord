@@ -9,7 +9,7 @@ This can be useful to generate pronounceable names, passwords and fixtures.
 ### Warning
 
 Offensive or insulting words might be generated because of the random nature
-of the generator (see [how to manage them][1].
+of the generator (see [how to manage them][1]).
 
 **Currently under development**.
 
