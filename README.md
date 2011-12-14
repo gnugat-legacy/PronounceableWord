@@ -2,7 +2,7 @@ Pronounceable Word Generator
 ============================
 
 A light, customizable and simple PHP (>= 5.2) library generating random and
-western pronounceable words without using dictionaries or Markov chains.
+pronounceable words without using dictionaries or Markov chains.
 
 This can be useful to generate pronounceable names, passwords and fixtures.
 
