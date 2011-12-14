@@ -23,7 +23,7 @@ First, get the last stable version, and put it in an accessible directory:
     
     require_once dirname(__FILE__) . '/vendors/PronounceableWordGenerator/PronounceableWordGenerator.php';
 
-Enable configuration files by renaming them, without the ".default" suffix:
+Enable configuration files (in the [config][2] directory) by renaming them, without the ".default" suffix:
 
     cp ./vendors/PronounceableWordGenerator/*.php{.default,}
 
