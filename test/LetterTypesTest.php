@@ -34,4 +34,10 @@ class LetterTypesTest extends PHPUnit_Framework_TestCase {
             $maximumLetterIndex = strlen($letters);
         }
     }
+
+    public function testIsThereAtLeastTwoTypes() {
+        $configuration = new LetterTypesConfiguration();
+
+        $this->assertGreaterThanOrEqual(2, $configuration->letterTypesWithLetters);
+    }
 }
