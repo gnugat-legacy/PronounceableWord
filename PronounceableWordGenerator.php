@@ -8,6 +8,7 @@
  * file that was distributed with this source code.
  */
 
+require_once dirname(__FILE__) . '/config/PronounceableWordGeneratorConfiguration.php';
 require_once dirname(__FILE__) . '/lib/LinkedLetters.php';
 require_once dirname(__FILE__) . '/lib/LetterTypes.php';
 require_once dirname(__FILE__) . '/lib/LastLettersConsecutiveTypes.php';
@@ -15,9 +16,6 @@ require_once dirname(__FILE__) . '/lib/LastLettersConsecutiveTypes.php';
 class PronounceableWordGenerator {
     protected $word;
     protected $length;
-
-    protected $maximumConsecutiveTypesAtTheBegining;
-    protected $maximumConsecutiveTypesInTheWord;
 
     protected $linkedLetters;
     protected $letterTypes;
@@ -45,7 +43,7 @@ class PronounceableWordGenerator {
 
         if (0 === $this->length) {
             $pickedLetter = $this->pickFirstLetter();
-        } elseif ($this->maximumConsecutiveTypesAtTheBegining >= $this->length) {
+        } elseif (PronounceableWordGeneratorConfiguration::$maximumConsecutiveTypesAtTheBegining >= $this->length) {
             $pickedLetter = $this->pickLinkedLetterOfDifferentType($this->word[0]);
         } else {
             $pickedLetter = $this->pickLinkedLetterOfDifferentTypeIfLastLettersAreOfConsecutiveTypes();
@@ -68,7 +66,7 @@ class PronounceableWordGenerator {
     protected function pickLinkedLetterOfDifferentTypeIfLastLettersAreOfConsecutiveTypes() {
         $lastLetter = $this->word[$this->length - 1];
         $pickedLetter = '';
-        if ($this->maximumConsecutiveTypesInTheWord === $this->lastLettersConsecutiveTypes->countFromWord($this->word)) {
+        if (PronounceableWordGeneratorConfiguration::$maximumConsecutiveTypesInTheWord === $this->lastLettersConsecutiveTypes->countFromWord($this->word)) {
             $pickedLetter = $this->pickLinkedLetterOfDifferentType($lastLetter);
         } else {
             $pickedLetter = $this->linkedLetters->pickLinkedLetter($lastLetter);

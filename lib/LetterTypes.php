@@ -11,17 +11,9 @@
 require_once dirname(__FILE__) . '/../config/LetterTypesConfiguration.php';
 
 class LetterTypes {
-    protected $letterTypesWithLetters;
-
-    public function __construct() {
-        $configuration = new LetterTypesConfiguration();
-
-        $this->letterTypesWithLetters = $configuration->letterTypesWithLetters;
-    }
-
     public function getLetterType($letter) {
         $type = '';
-        foreach ($this->letterTypesWithLetters as $letterType => $letters) {
+        foreach (LetterTypesConfiguration::$letterTypesWithLetters as $letterType => $letters) {
             if (false !== strpos($letters, $letter)) {
                 $type = $letterType;
                 break;
@@ -32,6 +24,6 @@ class LetterTypes {
     }
 
     public function getLettersOfGivenType($type) {
-        return $this->letterTypesWithLetters[$type];
+        return LetterTypesConfiguration::$letterTypesWithLetters[$type];
     }
 }

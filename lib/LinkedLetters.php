@@ -11,22 +11,14 @@
 require_once dirname(__FILE__) . '/../config/LinkedLettersConfiguration.php';
 
 class LinkedLetters {
-    protected $lettersWithLinkedLetters;
-
-    public function __construct() {
-        $configuration = new LinkedLettersConfiguration();
-
-        $this->lettersWithLinkedLetters = $configuration->lettersWithLinkedLetters;
-    }
-
     public function pickLetter() {
-        $pickedLetter = array_rand($this->lettersWithLinkedLetters);
+        $pickedLetter = array_rand(LinkedLettersConfiguration::$lettersWithLinkedLetters);
 
         return $pickedLetter;
     }
 
     public function pickLinkedLetter($letter) {
-        $linkedLetters = $this->lettersWithLinkedLetters[$letter];
+        $linkedLetters = LinkedLettersConfiguration::$lettersWithLinkedLetters[$letter];
 
         return $this->pickLetterFromGivenLetters($linkedLetters);
     }
@@ -42,7 +34,7 @@ class LinkedLetters {
     }
 
     public function pickLinkedLetterDifferentFromGivenLetters($letter, $letters) {
-        $linkedLetters = $this->lettersWithLinkedLetters[$letter];
+        $linkedLetters = LinkedLettersConfiguration::$lettersWithLinkedLetters[$letter];
 
         $letterChoices = $this->removeGivenLettersFromGivenLinkedLetters($letters, $linkedLetters);
 
