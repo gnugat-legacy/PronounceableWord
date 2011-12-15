@@ -11,7 +11,13 @@
 require_once dirname(__FILE__) . '/../config/PronounceableWordGeneratorConfiguration.php';
 
 class PronounceableWordGeneratorConfigurationTest extends PHPUnit_Framework_TestCase {
+    protected $minimumPositiveNumber = 1;
+
     public function testIsMaximumConsecutiveTypesAtTheBeginingPositive() {
-        $this->assertGreaterThan(0, PronounceableWordGeneratorConfiguration::$maximumConsecutiveTypesAtTheBegining);
+        $this->assertGreaterThanOrEqual($this->minimumPositiveNumber, PronounceableWordGeneratorConfiguration::$maximumConsecutiveTypesAtTheBegining);
+    }
+
+    public function testIsMaximumConsecutiveTypesInTheWordPositive() {
+        $this->assertGreaterThanOrEqual($this->minimumPositiveNumber, PronounceableWordGeneratorConfiguration::$maximumConsecutiveTypesInTheWord);
     }
 }
