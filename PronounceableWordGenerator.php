@@ -43,7 +43,7 @@ class PronounceableWordGenerator {
 
         if (0 === $this->length) {
             $pickedLetter = $this->pickFirstLetter();
-        } elseif (PronounceableWordGeneratorConfiguration::$maximumConsecutiveTypesAtTheBegining >= $this->length) {
+        } elseif ($this->length <= PronounceableWordGeneratorConfiguration::$maximumConsecutiveTypesAtTheBegining) {
             $pickedLetter = $this->pickLinkedLetterOfDifferentType($this->word[0]);
         } else {
             $pickedLetter = $this->pickLinkedLetterOfDifferentTypeIfLastLettersAreOfConsecutiveTypes();
@@ -65,8 +65,10 @@ class PronounceableWordGenerator {
 
     protected function pickLinkedLetterOfDifferentTypeIfLastLettersAreOfConsecutiveTypes() {
         $lastLetter = $this->word[$this->length - 1];
+        $consecutiveTypes = $this->lastLettersConsecutiveTypes->countFromWord($this->word);
+
         $pickedLetter = '';
-        if (PronounceableWordGeneratorConfiguration::$maximumConsecutiveTypesInTheWord === $this->lastLettersConsecutiveTypes->countFromWord($this->word)) {
+        if ($consecutiveTypes === PronounceableWordGeneratorConfiguration::$maximumConsecutiveTypesInTheWord) {
             $pickedLetter = $this->pickLinkedLetterOfDifferentType($lastLetter);
         } else {
             $pickedLetter = $this->linkedLetters->pickLinkedLetter($lastLetter);
