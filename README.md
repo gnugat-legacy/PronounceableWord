@@ -51,7 +51,7 @@ Don't forget to run tests after.
 
 ### Tests
 
-Tests are done using [PHPUnit][4] (>=3.5) in the [test][5] directory.
+Tests are done using [PHPUnit][4] (>=3.5) in the [test][5] directory (see [how to test][6]).
 
 Algorithm
 ---------
@@ -77,18 +77,18 @@ Documentation
 
 You can find more documentation at the following links:
 
-* Copyright and MIT license: [LICENSE.txt][6];
-* versions and change log: [CHANGELOG.txt][7];
-* technical documentation: [wiki][8].
+* Copyright and MIT license: [LICENSE.txt][7];
+* versions and change log: [CHANGELOG.txt][8];
+* technical documentation: [wiki][9].
 
 Contributing
 ------------
 
-1. [Fork it][9];
+1. [Fork it][10];
 2. Create a branch (`git checkout -b my_branch`);
 3. Commit your changes (`git commit -am "Changes description message"`);
 4. Push to the branch (`git push origin my_branch`);
-5. Create an [Issue][10] with a link to your branch;
+5. Create an [Issue][11] with a link to your branch;
 6. Wait for it to be accepted/argued.
 
 
@@ -97,8 +97,9 @@ Contributing
 [3]: https://github.com/gnugat/PronounceableWordGenerator/wiki/Configuration
 [4]: https://github.com/sebastianbergmann/phpunit/
 [5]: https://github.com/gnugat/PronounceableWordGenerator/tree/master/test
-[6]: https://github.com/gnugat/PronounceableWordGenerator/blob/master/LICENSE.txt
-[7]: https://github.com/gnugat/PronounceableWordGenerator/blob/master/CHANGELOG.txt
-[8]: https://github.com/gnugat/PronounceableWordGenerator/wiki
-[9]: https://github.com/gnugat/PronounceableWordGenerator/fork_select
-[10]: https://github.com/gnugat/PronounceableWordGenerator/issues
+[6]: https://github.com/gnugat/PronounceableWordGenerator/wiki/Tests
+[7]: https://github.com/gnugat/PronounceableWordGenerator/blob/master/LICENSE.txt
+[8]: https://github.com/gnugat/PronounceableWordGenerator/blob/master/CHANGELOG.txt
+[9]: https://github.com/gnugat/PronounceableWordGenerator/wiki
+[10]: https://github.com/gnugat/PronounceableWordGenerator/fork_select
+[11]: https://github.com/gnugat/PronounceableWordGenerator/issues
