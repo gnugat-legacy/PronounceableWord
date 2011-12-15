@@ -1,5 +1,5 @@
 <?php
 class PronounceableWordGeneratorConfiguration {
-    public $maximumConsecutiveTypesAtTheBegining = 1;
-    public $maximumConsecutiveTypesInTheWord = 2;
+    public static $maximumConsecutiveTypesAtTheBegining = 1;
+    public static $maximumConsecutiveTypesInTheWord = 2;
 }

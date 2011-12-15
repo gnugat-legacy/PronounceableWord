@@ -1,6 +1,6 @@
 <?php
 class LetterTypesConfiguration {
-    public $letterTypesWithLetters = array(
+    public static $letterTypesWithLetters = array(
         'voyels' => 'aeiouy',
         'consonants' => 'bcdfghjklmnprstvwxz',
     );

@@ -1,6 +1,6 @@
 <?php
 class LinkedLettersConfiguration {
-    public $lettersWithLinkedLetters = array(
+    public static $lettersWithLinkedLetters = array(
         'a' => 'abcdefghijklmnoprstuvwxyz',
         'b' => 'abdefghijlmnorstuvy',
         'c' => 'acdehiklorstuy',
