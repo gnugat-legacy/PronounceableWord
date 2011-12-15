@@ -12,10 +12,10 @@ require_once dirname(__FILE__) . '/../lib/LetterTypes.php';
 
 class LetterTypesTest extends PHPUnit_Framework_TestCase {
     public function testGetLetterType() {
-        $configuration = new LetterTypesConfiguration();
+        $letterTypesWithLetters = LetterTypesConfiguration::getLetterTypesWithLetters();
         $letterTypes = new LetterTypes();
 
-        foreach ($configuration->letterTypesWithLetters as $letterType => $letters) {
+        foreach ($letterTypesWithLetters as $letterType => $letters) {
             $maximumLetterIndex = strlen($letters);
             for ($letterIndex = 0; $letterIndex < $maximumLetterIndex; $letterIndex++) {
                 $letter = $letters[$letterIndex];
@@ -26,18 +26,19 @@ class LetterTypesTest extends PHPUnit_Framework_TestCase {
     }
 
     public function testGetLettersOfGivenType() {
-        $configuration = new LetterTypesConfiguration();
+        $letterTypesWithLetters = LetterTypesConfiguration::getLetterTypesWithLetters();
         $letterTypes = new LetterTypes();
 
-        foreach ($configuration->letterTypesWithLetters as $letterType => $letters) {
+        foreach ($letterTypesWithLetters as $letterType => $letters) {
             $this->assertSame($letters, $letterTypes->getLettersOfGivenType($letterType));
             $maximumLetterIndex = strlen($letters);
         }
     }
 
     public function testIsThereAtLeastTwoTypes() {
-        $configuration = new LetterTypesConfiguration();
+        $letterTypesWithLetters = LetterTypesConfiguration::getLetterTypesWithLetters();
+        $minimumLetterTypesNumber = 2;
 
-        $this->assertGreaterThanOrEqual(2, $configuration->letterTypesWithLetters);
+        $this->assertGreaterThanOrEqual($minimumLetterTypesNumber, $letterTypesWithLetters);
     }
 }

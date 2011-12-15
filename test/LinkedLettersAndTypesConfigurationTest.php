@@ -14,12 +14,12 @@ require_once dirname(__FILE__) . '/../lib/LetterTypes.php';
 
 class LinkedLettersAndTypesConfigurationTest extends PHPUnit_Framework_TestCase {
     public function testAreAllLettersFromLinkedLettersInLettersFromLetterTypes() {
-        $linkedLettersconfiguration = new LinkedLettersConfiguration();
-        $letterTypeconfiguration = new LetterTypesConfiguration();
+        $lettersWithLinkedLetters = LinkedLettersConfiguration::getLettersWithLinkedLetters();
+        $letterTypesWithLetters = LetterTypesConfiguration::getLetterTypesWithLetters();
 
-        foreach ($linkedLettersconfiguration->lettersWithLinkedLetters as $letter => $linkedLettersToIgnore) {
+        foreach ($lettersWithLinkedLetters as $letter => $linkedLettersToIgnore) {
             $isLetterInTypes = false;
-            foreach ($letterTypeconfiguration->letterTypesWithLetters as $lettersOfType) {
+            foreach ($letterTypesWithLetters as $lettersOfType) {
                 $isLetterInLetters = strpos($lettersOfType, $letter);
 
                 if (false !== $isLetterInLetters) {
@@ -33,11 +33,10 @@ class LinkedLettersAndTypesConfigurationTest extends PHPUnit_Framework_TestCase 
     }
 
     public function testHaveLettersAtLeastOneLinkedLetterOfDifferentType() {
-        $linkedLettersconfiguration = new LinkedLettersConfiguration();
-        $letterTypeconfiguration = new LetterTypesConfiguration();
+        $lettersWithLinkedLetters = LinkedLettersConfiguration::getLettersWithLinkedLetters();
         $letterTypes = new LetterTypes();
 
-        foreach ($linkedLettersconfiguration->lettersWithLinkedLetters as $letter => $linkedLetters) {
+        foreach ($lettersWithLinkedLetters as $letter => $linkedLetters) {
             $letterType = $letterTypes->getLetterType($letter);
 
             $hasOneDifferentType = false;

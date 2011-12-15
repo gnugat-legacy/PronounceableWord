@@ -12,11 +12,11 @@ require_once dirname(__FILE__) . '/../config/LinkedLettersConfiguration.php';
 
 class LinkedLettersConfigurationTest extends PHPUnit_Framework_TestCase {
     public function testAreAllLettersInAtLeastOneLinkedLetters() {
-        $configuration = new LinkedLettersConfiguration();
+        $lettersWithLinkedLetters = LinkedLettersConfiguration::getLettersWithLinkedLetters();
 
-        foreach ($configuration->lettersWithLinkedLetters as $letter => $linkedLettersToIgnore) {
+        foreach ($lettersWithLinkedLetters as $letter => $linkedLettersToIgnore) {
             $isInAtLeastOneLinkedLetters = false;
-            foreach ($configuration->lettersWithLinkedLetters as $letterToIgnore => $linkedLetters) {
+            foreach ($lettersWithLinkedLetters as $letterToIgnore => $linkedLetters) {
                 $isLetterInLinkedLetters = strpos($linkedLetters, $letter);
 
                 if (false !== $isLetterInLinkedLetters) {
@@ -30,11 +30,11 @@ class LinkedLettersConfigurationTest extends PHPUnit_Framework_TestCase {
     }
 
     public function testAreAllLinkedLettersInLetters() {
-        $configuration = new LinkedLettersConfiguration();
+        $lettersWithLinkedLetters = LinkedLettersConfiguration::getLettersWithLinkedLetters();
 
-        foreach ($configuration->lettersWithLinkedLetters as $letterToIgnore => $linkedLetters) {
+        foreach ($lettersWithLinkedLetters as $letterToIgnore => $linkedLetters) {
             $isLinkedLetterInLetters = false;
-            foreach ($configuration->lettersWithLinkedLetters as $letter => $linkedLettersToIgnore) {
+            foreach ($lettersWithLinkedLetters as $letter => $linkedLettersToIgnore) {
                 $isLetterInLinkedLetters = strpos($linkedLetters, $letter);
 
                 if (false !== $isLetterInLinkedLetters) {
