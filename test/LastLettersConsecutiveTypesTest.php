@@ -12,10 +12,9 @@ require_once dirname(__FILE__) . '/../lib/LastLettersConsecutiveTypes.php';
 
 class LastLettersConsecutiveTypesTest extends PHPUnit_Framework_TestCase {
     public function testCountFromWordOfOneType() {
-        $letterTypesWithLetters = LetterTypesConfiguration::getLetterTypesWithLetters();
         $lastLettersconsecutiveTypes = new LastLettersConsecutiveTypes();
 
-        foreach ($letterTypesWithLetters as $letterType => $letters) {
+        foreach (LetterTypesConfiguration::$letterTypesWithLetters as $letterType => $letters) {
             $maximumLetterNumber = strlen($letters);
             $word = '';
             for ($letterNumber = 1; $letterNumber < $maximumLetterNumber; $letterNumber++) {
@@ -28,13 +27,12 @@ class LastLettersConsecutiveTypesTest extends PHPUnit_Framework_TestCase {
     }
 
     public function testCountFromWordOfMultipleTypes() {
-        $letterTypesWithLetters = LetterTypesConfiguration::getLetterTypesWithLetters();
         $lastLettersconsecutiveTypes = new LastLettersConsecutiveTypes();
 
-        foreach ($letterTypesWithLetters as $letterType => $letters) {
+        foreach (LetterTypesConfiguration::$letterTypesWithLetters as $letterType => $letters) {
             $maximumLetterNumber = strlen($letters);
 
-            foreach ($letterTypesWithLetters as $otherLetterType => $otherLetters) {
+            foreach (LetterTypesConfiguration::$letterTypesWithLetters as $otherLetterType => $otherLetters) {
                 if ($otherLetterType != $letterType) {
                     $word = $otherLetters;
                     break;

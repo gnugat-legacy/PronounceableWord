@@ -12,12 +12,10 @@ require_once dirname(__FILE__) . '/../config/LetterTypesConfiguration.php';
 
 class LetterTypesConfigurationTest extends PHPUnit_Framework_TestCase {
     public function testAreLettersInOnlyOneType() {
-        $letterTypesWithLetters = LetterTypesConfiguration::getLetterTypesWithLetters();
-
-        foreach ($letterTypesWithLetters as $currentType => $lettersOfCurrentType) {
+        foreach (LetterTypesConfiguration::$letterTypesWithLetters as $currentType => $lettersOfCurrentType) {
             $maximumLetterIndex = strlen($lettersOfCurrentType);
             $areLettersInOnlyOneType = true;
-            foreach ($letterTypesWithLetters as $checkedType => $lettersOfCheckedType) {
+            foreach (LetterTypesConfiguration::$letterTypesWithLetters as $checkedType => $lettersOfCheckedType) {
                 if ($currentType !== $checkedType) {
                     for ($letterIndex = 0; $letterIndex < $maximumLetterIndex; $letterIndex++) {
                         $isLetterInLetters = strpos($lettersOfCheckedType, $lettersOfCurrentType[$letterIndex]);

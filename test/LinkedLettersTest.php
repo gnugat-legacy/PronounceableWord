@@ -12,23 +12,21 @@ require_once dirname(__FILE__) . '/../lib/LinkedLetters.php';
 
 class LinkedLettersTest extends PHPUnit_Framework_TestCase {
     public function testPickLetter() {
-        $lettersWithLinkedLetters = LinkedLettersConfiguration::getLettersWithLinkedLetters();
         $linkedLetters = new LinkedLetters();
 
         $maximumTestNumber = 1000;
         for ($currentTestNumber = 0; $currentTestNumber < $maximumTestNumber; $currentTestNumber++) {
             $chosenLetter = $linkedLetters->pickLetter();
 
-            $this->assertArrayHasKey($chosenLetter, $lettersWithLinkedLetters);
+            $this->assertArrayHasKey($chosenLetter, LinkedLettersConfiguration::$lettersWithLinkedLetters);
         }
     }
 
     public function testPickLinkedLetter() {
-        $lettersWithLinkedLetters = LinkedLettersConfiguration::getLettersWithLinkedLetters();
         $linkedLetters = new LinkedLetters();
 
         $maximumTestNumber = 1000;
-        foreach ($lettersWithLinkedLetters as $currentLetter => $currentLinkedLetters) {
+        foreach (LinkedLettersConfiguration::$lettersWithLinkedLetters as $currentLetter => $currentLinkedLetters) {
             for ($currentTestNumber = 0; $currentTestNumber < $maximumTestNumber; $currentTestNumber++) {
                 $chosenLinkedLetter = $linkedLetters->pickLinkedLetter($currentLetter);
 
@@ -40,11 +38,10 @@ class LinkedLettersTest extends PHPUnit_Framework_TestCase {
     }
 
     public function testPickLinkedLetterDifferentFromGivenLetters() {
-        $lettersWithLinkedLetters = LinkedLettersConfiguration::getLettersWithLinkedLetters();
         $linkedLetters = new LinkedLetters();
 
         $maximumTestNumber = 1000;
-        foreach ($lettersWithLinkedLetters as $currentLetter => $currentLinkedLetters) {
+        foreach (LinkedLettersConfiguration::$lettersWithLinkedLetters as $currentLetter => $currentLinkedLetters) {
             for ($currentTestNumber = 0; $currentTestNumber < $maximumTestNumber; $currentTestNumber++) {
                 $chosenLinkedLetter = $linkedLetters->pickLinkedLetterDifferentFromGivenLetters($currentLetter, $currentLetter);
 
