@@ -9,7 +9,7 @@ This can be useful to generate pronounceable names, passwords and fixtures.
 ### Warning
 
 Offensive or insulting words might be generated because of the random nature
-of the generator (see [how to manage them][1]).
+of the generator (see [how to manage them](https://github.com/gnugat/PronounceableWordGenerator/wiki/OffensiveAndInsultingWordsManagement)).
 
 **Currently under development**.
 
@@ -23,9 +23,10 @@ First, get the last stable version, and put it in an accessible directory:
     
     require_once dirname(__FILE__) . '/vendors/PronounceableWordGenerator/PronounceableWordGenerator.php';
 
-Enable configuration files (in the [config][2] directory) by renaming them,
+Enable configuration files (in the [config](https://github.com/gnugat/PronounceableWordGenerator/tree/master/config) directory) by renaming them,
 without the ".default" suffix, or by running the install script from the
-[bin directory](https://github.com/gnugat/PronounceableWordGenerator/tree/master/bin):
+[bin](https://github.com/gnugat/PronounceableWordGenerator/tree/master/bin)
+directory:
 
     ./install.sh # on Mac OS X, GNU/Linux and *BSD
     .\install.bat # on Windows
@@ -48,13 +49,16 @@ For now, you should have a fully operationnal generator:
 ### Configuration
 
 To customize the algorithm, the letters used, the linked letters or the types,
-just edit as you wish the files in the [config][2] directory (see [how to configure][3]).
+just edit as you wish the files in the [config](https://github.com/gnugat/PronounceableWordGenerator/tree/master/config)
+directory (see [how to configure]([3]: https://github.com/gnugat/PronounceableWordGenerator/wiki/Configuration)).
 
 Don't forget to run tests after.
 
 ### Tests
 
-Tests are done using [PHPUnit][4] (>=3.5) in the [test][5] directory (see [how to test][6]).
+Tests are done using [PHPUnit](https://github.com/sebastianbergmann/phpunit/)
+(>=3.5) in the [test](https://github.com/gnugat/PronounceableWordGenerator/tree/master/test)
+directory (see [how to test](https://github.com/gnugat/PronounceableWordGenerator/wiki/Tests)).
 
 ### Examples
 
@@ -97,29 +101,16 @@ Documentation
 
 You can find more documentation at the following links:
 
-* Copyright and MIT license: [LICENSE.txt][7];
-* versions and change log: [CHANGELOG.txt][8];
-* technical documentation: [wiki][9].
+* Copyright and MIT license: [LICENSE.txt](https://github.com/gnugat/PronounceableWordGenerator/blob/master/LICENSE.txt);
+* versions and change log: [CHANGELOG.txt](https://github.com/gnugat/PronounceableWordGenerator/blob/master/CHANGELOG.txt);
+* technical documentation: [wiki](https://github.com/gnugat/PronounceableWordGenerator/wiki).
 
 Contributing
 ------------
 
-1. [Fork it][10];
+1. [Fork it](https://github.com/gnugat/PronounceableWordGenerator/fork_select);
 2. Create a branch (`git checkout -b my_branch`);
 3. Commit your changes (`git commit -am "Changes description message"`);
 4. Push to the branch (`git push origin my_branch`);
-5. Create an [Issue][11] with a link to your branch;
+5. Create an [Issue](https://github.com/gnugat/PronounceableWordGenerator/issues) with a link to your branch;
 6. Wait for it to be accepted/argued.
-
-
-[1]: https://github.com/gnugat/PronounceableWordGenerator/wiki/OffensiveAndInsultingWordsManagement
-[2]: https://github.com/gnugat/PronounceableWordGenerator/tree/master/config
-[3]: https://github.com/gnugat/PronounceableWordGenerator/wiki/Configuration
-[4]: https://github.com/sebastianbergmann/phpunit/
-[5]: https://github.com/gnugat/PronounceableWordGenerator/tree/master/test
-[6]: https://github.com/gnugat/PronounceableWordGenerator/wiki/Tests
-[7]: https://github.com/gnugat/PronounceableWordGenerator/blob/master/LICENSE.txt
-[8]: https://github.com/gnugat/PronounceableWordGenerator/blob/master/CHANGELOG.txt
-[9]: https://github.com/gnugat/PronounceableWordGenerator/wiki
-[10]: https://github.com/gnugat/PronounceableWordGenerator/fork_select
-[11]: https://github.com/gnugat/PronounceableWordGenerator/issues
