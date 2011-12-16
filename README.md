@@ -23,9 +23,12 @@ First, get the last stable version, and put it in an accessible directory:
     
     require_once dirname(__FILE__) . '/vendors/PronounceableWordGenerator/PronounceableWordGenerator.php';
 
-Enable configuration files (in the [config][2] directory) by renaming them, without the ".default" suffix:
+Enable configuration files (in the [config][2] directory) by renaming them,
+without the ".default" suffix, or by running the install script from the
+[bin directory](https://github.com/gnugat/PronounceableWordGenerator/tree/master/bin):
 
-    cp ./vendors/PronounceableWordGenerator/*.php{.default,}
+    ./install.sh # on Mac OS X, GNU/Linux and *BSD
+    .\install.bat # on Windows
 
 For now, you should have a fully operationnal generator:
 
