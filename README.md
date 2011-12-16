@@ -1,5 +1,4 @@
-Pronounceable Word Generator
-============================
+# Pronounceable Word Generator
 
 A light, customizable and simple PHP (>= 5.2) library generating random and
 pronounceable words without using dictionaries or Markov chains.
@@ -13,8 +12,7 @@ of the generator (see [how to manage them](https://github.com/gnugat/Pronounceab
 
 **Currently under development**.
 
-Installation and usage
-----------------------
+## Installation and usage
 
 First, get the last stable version, and put it in an accessible directory:
 
@@ -78,8 +76,7 @@ Here is a sample of examples that can be generated:
 To generate more example, run the `generateExamples` binary in the [binaries](https://github.com/gnugat/PronounceableWordGenerator/tree/master/bin)
 directory.
 
-Algorithm
----------
+## Algorithm
 
 Basically, the library will generate a word following these rules:
 
@@ -97,8 +94,7 @@ Where:
 
 The step 3 is repeated as many times as necessary.
 
-Documentation
--------------
+## Documentation
 
 You can find more documentation at the following links:
 
@@ -106,8 +102,7 @@ You can find more documentation at the following links:
 * versions and change log: [CHANGELOG.txt](https://github.com/gnugat/PronounceableWordGenerator/blob/master/CHANGELOG.txt);
 * technical documentation: [wiki](https://github.com/gnugat/PronounceableWordGenerator/wiki).
 
-Contributing
-------------
+# Contributing
 
 1. [Fork it](https://github.com/gnugat/PronounceableWordGenerator/fork_select);
 2. Create a branch (`git checkout -b my_branch`);
