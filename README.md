@@ -53,6 +53,23 @@ Don't forget to run tests after.
 
 Tests are done using [PHPUnit][4] (>=3.5) in the [test][5] directory (see [how to test][6]).
 
+### Examples
+
+Here is a sample of examples that can be generated:
+
+* xorir;
+* tetazu;
+* somaprosi;
+* doir;
+* liogg;
+* janheptur;
+* avefdy;
+* owoc;
+* pidta.
+
+To generate more example, run the `generateExamples` binary in the [binaries](https://github.com/gnugat/PronounceableWordGenerator/tree/master/bin)
+directory.
+
 Algorithm
 ---------
 
