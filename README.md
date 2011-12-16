@@ -23,7 +23,8 @@ First, get the last stable version, and put it in an accessible directory:
     
     require_once dirname(__FILE__) . '/vendors/PronounceableWordGenerator/PronounceableWordGenerator.php';
 
-Enable configuration files (in the [config](https://github.com/gnugat/PronounceableWordGenerator/tree/master/config) directory) by renaming them,
+Enable configuration files (in the [config](https://github.com/gnugat/PronounceableWordGenerator/tree/master/config)
+directory) by renaming them,
 without the ".default" suffix, or by running the install script from the
 [bin](https://github.com/gnugat/PronounceableWordGenerator/tree/master/bin)
 directory:
@@ -50,7 +51,7 @@ For now, you should have a fully operationnal generator:
 
 To customize the algorithm, the letters used, the linked letters or the types,
 just edit as you wish the files in the [config](https://github.com/gnugat/PronounceableWordGenerator/tree/master/config)
-directory (see [how to configure]([3]: https://github.com/gnugat/PronounceableWordGenerator/wiki/Configuration)).
+directory (see [how to configure](https://github.com/gnugat/PronounceableWordGenerator/wiki/Configuration)).
 
 Don't forget to run tests after.
 
