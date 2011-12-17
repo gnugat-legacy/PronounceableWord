@@ -98,8 +98,7 @@ The step 3 is repeated as many times as necessary.
 
 You can find more documentation at the following links:
 
-* Copyright and MIT license: [LICENSE.txt](https://github.com/gnugat/PronounceableWord/blob/master/LICENSE.txt);
-* versions and change log: [CHANGELOG.txt](https://github.com/gnugat/PronounceableWord/blob/master/CHANGELOG.txt);
+* Copyright and MIT license: [LICENSE.txt](https://github.com/gnugat/PronounceableWord/blob/master/LICENSE.md);
 * technical documentation: [wiki](https://github.com/gnugat/PronounceableWord/wiki).
 
 # Contributing
