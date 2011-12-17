@@ -10,8 +10,6 @@ This can be useful to generate pronounceable names, passwords and fixtures.
 Offensive or insulting words might be generated because of the random nature
 of the generator (see [how to manage them](https://github.com/gnugat/PronounceableWord/wiki/OffensiveAndInsultingWordsManagement)).
 
-**Currently under development**.
-
 ## Installation and usage
 
 First, get the last stable version, and put it in an accessible directory:
