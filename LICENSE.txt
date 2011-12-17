@@ -1,6 +1,8 @@
-PronounceableWord PHP library
+# LICENSE
 
-The MIT license
+License for the PronounceableWord PHP library
+
+## The MIT license
 
 Copyright (c) 2011 Loic Chardonnet
 
