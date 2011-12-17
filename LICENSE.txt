@@ -1,4 +1,4 @@
-PronounceableWordGenerator PHP library
+PronounceableWord PHP library
 
 The MIT license
 
