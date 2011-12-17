@@ -23,12 +23,11 @@ First, get the last stable version, and put it in an accessible directory:
 
 Enable configuration files (in the [config](https://github.com/gnugat/PronounceableWordGenerator/tree/master/config)
 directory) by renaming them,
-without the ".default" suffix, or by running the install script from the
+without the ".default" suffix, or by running the installConfiguration script from the
 [bin](https://github.com/gnugat/PronounceableWord/tree/master/bin)
 directory:
 
-    ./install.sh # on Mac OS X, GNU/Linux and *BSD
-    .\install.bat # on Windows
+    php installConfiguration.php
 
 For now, you should have a fully operationnal generator:
 
