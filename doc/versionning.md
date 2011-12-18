@@ -8,27 +8,27 @@ PronounceableWord.
 The version number will follow the X.Y.Z format. The following table describes
 the meaning of incrementation for each number:
 
-========= ==========================================================
-Version   Description
-========= ==========================================================
-**#.0.0** Modification impacting on the public usage
-**0.#.0** Modification not impacting on the public usage
-**0.0.#** Small modification like bug fixes and adding of new tests
-========= ==========================================================
+======== ==========================================================
+Version  Description
+======== ==========================================================
+#.0.0    Modification impacting on the public usage
+0.#.0    Modification not impacting on the public usage
+0.0.#    Small modification like bug fixes and adding of new tests
+======== ==========================================================
 
 ## Branching model
 
 The PronounceableWord project uses Git to its full potential, following
 the advice of [this article](http://nvie.com/posts/a-successful-git-branching-model/).
 
-================= ============== ================================ ===================================
-Repository/Branch Pull from      Push to                          Description
-================= ============== ================================ ===================================
-origin/master                                                     Stable branch, actual release.
-origin/develop    origin/master  origin/master                    Stable branch, for next release.
-origin/hotfix     origin/master  origin/master and origin/develop Bug fixes branch for origin/master.
-x/x               origin/develop origin/develop                   Feature branch.
-================= ============== ================================ ===================================
+================== =============== ================================= ====================================
+Repository/Branch  Pull from       Push to                           Description
+================== =============== ================================= ====================================
+origin/master                                                        Stable branch, actual release.
+origin/develop     origin/master   origin/master                     Stable branch, for next release.
+origin/hotfix      origin/master   origin/master and origin/develop  Bug fixes branch for origin/master.
+x/x                origin/develop  origin/develop                    Feature branch.
+================== =============== ================================= ====================================
 
 ### Tags
 
