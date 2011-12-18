@@ -1,9 +1,11 @@
-# Versionning
+Versionning
+===========
 
 This file will document the versionning process of the PHP library
 PronounceableWord.
 
-## Version number
+Version number
+==============
 
 The version number will follow the X.Y.Z format. The following table describes
 the meaning of incrementation for each number:
@@ -16,10 +18,11 @@ Version  Description
 0.0.#    Small modification like bug fixes and adding of new tests
 ======== ==========================================================
 
-## Branching model
+Branching model
+===============
 
 The PronounceableWord project uses Git to its full potential, following
-the advice of [this article](http://nvie.com/posts/a-successful-git-branching-model/).
+the advice of this article: http://nvie.com/posts/a-successful-git-branching-model/ .
 
 ================== =============== ================================= ====================================
 Repository/Branch  Pull from       Push to                           Description
@@ -30,11 +33,13 @@ origin/hotfix      origin/master   origin/master and origin/develop  Bug fixes b
 x/x                origin/develop  origin/develop                    Feature branch.
 ================== =============== ================================= ====================================
 
-### Tags
+Tags
+----
 
 Tags are created from the origin/master branch, incrementing the version number.
 
-### x/x branches
+x/x branches
+------------
 
 The repository is named x because it can be from another repository (through
 forks), and the branch is called x because it is named after the feature it
