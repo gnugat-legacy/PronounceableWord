@@ -1,16 +1,17 @@
-# Pronounceable Word
+PronounceableWord PHP library
+=============================
 
-A light, customizable and simple PHP (>= 5.2) library generating random and
-pronounceable words without using dictionaries or Markov chains.
+A light, customizable and simple PHP (>= 5.2) library, used to generate
+randomly pronounceable words, names and passwords without using database of
+existing words or big samples of text like with Markov chains.
 
-This can be useful to generate pronounceable names, passwords and fixtures.
-
-### Warning
+**Warning**
 
 Offensive or insulting words might be generated because of the random nature
-of the generator (see [how to manage them](https://github.com/gnugat/PronounceableWord/wiki/OffensiveAndInsultingWordsManagement)).
+of the generator (see how to manage them in `./doc/manageOffensiveAndInsultingWords.rst`).
 
-## Installation and usage
+Installation and usage
+======================
 
 First, get the last stable version, and put it in an accessible directory:
 
@@ -19,15 +20,11 @@ First, get the last stable version, and put it in an accessible directory:
     
     require_once dirname(__FILE__) . '/vendors/PronounceableWord/PronounceableWordGenerator.php';
 
-Enable configuration files (in the [config](https://github.com/gnugat/PronounceableWordGenerator/tree/master/config)
-directory) by renaming them,
-without the ".default" suffix, or by running the installConfiguration script from the
-[bin](https://github.com/gnugat/PronounceableWord/tree/master/bin)
-directory:
+Enable configuration files (in the `./config` directory) by renaming them,
+without the ".default" suffix, or by running the `./bin/installConfiguration.php`
+script.
 
-    php installConfiguration.php
-
-For now, you should have a fully operationnal generator:
+For now, you should have a fully operationnal pronounceable word generator:
 
     <?php
     // File "/index.php".
@@ -42,38 +39,34 @@ For now, you should have a fully operationnal generator:
     $generator = new PronounceableWordGenerator();
     $word = $generator->generateWordOfGivenLength($length);
 
-### Configuration
+Configuration
+-------------
 
 To customize the algorithm, the letters used, the linked letters or the types,
-just edit as you wish the files in the [config](https://github.com/gnugat/PronounceableWord/tree/master/config)
-directory (see [how to configure](https://github.com/gnugat/PronounceableWord/wiki/Configuration)).
+just edit as you wish the files in the `./config` directory (see how to
+configure in `./doc/configuration.rst`).
 
-Don't forget to run tests after.
+Don't forget to run tests afterward.
 
-### Tests
+Tests
+-----
 
-Tests are done using [PHPUnit](https://github.com/sebastianbergmann/phpunit/)
-(>=3.5) in the [test](https://github.com/gnugat/PronounceableWord/tree/master/test)
-directory (see [how to test](https://github.com/gnugat/PronounceableWord/wiki/Tests)).
+Tests are done using PHPUnit (https://github.com/sebastianbergmann/phpunit/)
+(>=3.5) in the `./test` directory (see how to test in `./doc/tests.rst`).
 
-### Examples
+Examples
+--------
 
-Here is a sample of examples that can be generated:
+Here is a sample of examples that can be generated (use the
+`./bin/generateExamples.php` script for more):
 
-* xorir;
-* tetazu;
-* somaprosi;
-* doir;
-* liogg;
-* janheptur;
-* avefdy;
-* owoc;
-* pidta.
+====== ==== ======== ============
+Length 4    8        12
+====== ==== ======== ============
+====== ==== ======== ============
 
-To generate more example, run the `generateExamples` binary in the [binaries](https://github.com/gnugat/PronounceableWord/tree/master/bin)
-directory.
-
-## Algorithm
+Algorithm
+=========
 
 Basically, the library will generate a word following these rules:
 
@@ -91,18 +84,22 @@ Where:
 
 The step 3 is repeated as many times as necessary.
 
-## Documentation
+Documentation
+=============
 
 You can find more documentation at the following links:
 
-* Copyright and MIT license: [LICENSE.txt](https://github.com/gnugat/PronounceableWord/blob/master/LICENSE.md);
-* technical documentation: [wiki](https://github.com/gnugat/PronounceableWord/wiki).
+* Copyright and MIT license: `./LICENSE.rst`;
+* version and change log: `./VERSION.rst` and `CHANGELOG.rst`;
+* technical and usage documentation: `./doc/`.
 
-# Contributing
+Contributing
+============
 
-1. [Fork it](https://github.com/gnugat/PronounceableWord/fork_select);
-2. Create a branch (`git checkout -b my_branch`);
-3. Commit your changes (`git commit -am "Changes description message"`);
-4. Push to the branch (`git push origin my_branch`);
-5. Create an [Issue](https://github.com/gnugat/PronounceableWord/issues) with a link to your branch;
-6. Wait for it to be accepted/argued.
+1. Fork it: https://github.com/gnugat/PronounceableWord/fork_select ;
+2. create a branch (`git checkout -b my_branch`);
+3. commit your changes (`git commit -am "Changes description message"`);
+4. push to the branch (`git push origin my_branch`);
+5. create an Issue (https://github.com/gnugat/PronounceableWord/issues) with a
+   link to your branch;
+6. wait for it to be accepted/argued.
