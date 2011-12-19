@@ -13,7 +13,7 @@ of the generator (see how to manage them in `./doc/manageOffensiveAndInsultingWo
 Installation and usage
 ======================
 
-First, get the last stable version, and put it in an accessible directory:
+First, get the last stable version, and put it in an accessible directory::
 
     <?php
     // File "/index.php".
@@ -24,7 +24,7 @@ Enable configuration files (in the `./config` directory) by renaming them,
 without the ".default" suffix, or by running the `./bin/installConfiguration.php`
 script.
 
-For now, you should have a fully operationnal pronounceable word generator:
+For now, you should have a fully operationnal pronounceable word generator::
 
     <?php
     // File "/index.php".
