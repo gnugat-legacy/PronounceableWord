@@ -31,8 +31,8 @@ For now, you should have a fully operationnal pronounceable word generator::
     
     require_once dirname(__FILE__) . '/vendors/PronounceableWord/PronounceableWordGenerator.php';
 
-    define('MINIMUM_LENGTH', 4);
-    define('MAXIMUM_LENGTH', 8);
+    define('MINIMUM_LENGTH', 5);
+    define('MAXIMUM_LENGTH', 11);
 
     $length = rand(MINIMUM_LENGTH, MAXIMUM_LENGTH);
 
@@ -61,7 +61,7 @@ Here is a sample of examples that can be generated (use the
 ``./bin/generateExamples.php`` script for more):
 
 ====== ==== ======== ============
-Length 4    8        12
+Length 5    8        11
 ====== ==== ======== ============
 ====== ==== ======== ============
 
