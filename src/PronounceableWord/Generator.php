@@ -8,8 +8,6 @@
  * file that was distributed with this source code.
  */
 
-require_once dirname(__FILE__) . '/Configuration/Generator.php';
-
 class PronounceableWord_Generator {
     protected $word;
     protected $length;
