@@ -1,7 +1,7 @@
 Offensive and insulting words management
 ========================================
 
-Because of the algorithm of PronounceableWordGenerator uses randomness,
+Because PronounceableWord uses an algorithm using randomness,
 offensive or insulting words might be generated. The best way to manage them
 is to ceate a function that will filter them afterward.
 
@@ -36,7 +36,7 @@ has "a" as a linked letter, and the letter "a" has "l" has a linked letter::
         }
     }
 
-Now, after generating your words with PronounceableWordGenerator, you can use
+Now, after generating your words with PronounceableWord_Generator, you can use
 ``OffensiveAndInsultingWords`` to filter any words you might find offensive or
 insulting::
 
@@ -44,14 +44,14 @@ insulting::
     // File "/index.php".
 
     require_once dirname(__FILE__) . '/OffensiveAndInsultingWords.php';
-    require_once dirname(__FILE__) . '/lib/PronounceableWord/PronounceableWordGenerator.php';
+    require_once dirname(__FILE__) . '/vendors/PronounceableWord/src/PronounceableWord/Generator.php';
 
     define('MINIMUM_LENGTH', 5);
     define('MAXIMUM_LENGTH', 11);
 
     $length = rand(MINIMUM_LENGTH, MAXIMUM_LENGTH);
 
-    $generator = new PronounceableWordGenerator();
+    $generator = new PronounceableWord_Generator();
     $offensiveAndInsultingWordManager = new OffensiveAndInsultingWords();
 
     $word = $generator->generateWordOfGivenLength($length);
