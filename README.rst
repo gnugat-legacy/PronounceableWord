@@ -8,43 +8,35 @@ existing words or big samples of text like with Markov chains.
 **Warning**
 
 Offensive or insulting words might be generated because of the random nature
-of the generator (see how to manage them in ``./doc/manageOffensiveAndInsultingWords.rst``).
+of the generator (see how to manage them in
+``./doc/manageOffensiveAndInsultingWords.rst``).
 
 Installation and usage
 ======================
 
-First, get the last stable version, and put it in an accessible directory::
+First, get the last stable version, and put it in an accessible directory.
+
+You should have a fully operationnal pronounceable word generator::
 
     <?php
     // File "/index.php".
     
-    require_once dirname(__FILE__) . '/vendors/PronounceableWord/PronounceableWordGenerator.php';
-
-Enable configuration files (in the ``./config`` directory) by renaming them,
-without the ".default" suffix, or by running the ``./bin/installConfiguration.php``
-script.
-
-For now, you should have a fully operationnal pronounceable word generator::
-
-    <?php
-    // File "/index.php".
-    
-    require_once dirname(__FILE__) . '/vendors/PronounceableWord/PronounceableWordGenerator.php';
+    require_once dirname(__FILE__) . '/vendors/PronounceableWord/src/PronounceableWord/Generator.php';
 
     define('MINIMUM_LENGTH', 5);
     define('MAXIMUM_LENGTH', 11);
 
     $length = rand(MINIMUM_LENGTH, MAXIMUM_LENGTH);
 
-    $generator = new PronounceableWordGenerator();
+    $generator = new PronounceableWord_Generator();
     $word = $generator->generateWordOfGivenLength($length);
 
 Configuration
 -------------
 
 To customize the algorithm, the letters used, the linked letters or the types,
-just edit as you wish the files in the ``./config`` directory (see how to
-configure in ``./doc/configuration.rst``).
+just edit as you wish the files in the ``./src/PronounceableWord/Configuration``
+directory (see how to configure in ``./doc/configuration.rst``).
 
 Don't forget to run tests afterward.
 
