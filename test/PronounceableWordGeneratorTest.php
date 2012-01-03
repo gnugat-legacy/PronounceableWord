@@ -8,13 +8,13 @@
  * file that was distributed with this source code.
  */
 
-require_once dirname(__FILE__) . '/../PronounceableWordGenerator.php';
+require_once dirname(__FILE__) . '/../src/PronounceableWord/Generator.php';
 
-class PronounceableWordGeneratorTest extends PHPUnit_Framework_TestCase {
+class PronounceableWord_Tests_GeneratorTest extends PHPUnit_Framework_TestCase {
     public function testGeneratedLength() {
         $maximumLength = 100;
         for ($length = 1; $length <= $maximumLength; $length++) {
-            $pronounceableWordGenerator = new PronounceableWordGenerator();
+            $pronounceableWordGenerator = new PronounceableWord_Generator();
 
             $generatedWord = $pronounceableWordGenerator->generateWordOfGivenLength($length);
 

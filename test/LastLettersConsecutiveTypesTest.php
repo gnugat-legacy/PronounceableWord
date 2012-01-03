@@ -8,31 +8,31 @@
  * file that was distributed with this source code.
  */
 
-require_once dirname(__FILE__) . '/../lib/LastLettersConsecutiveTypes.php';
+require_once dirname(__FILE__) . '/../src/PronounceableWord/LastLettersConsecutiveTypes.php';
 
-class LastLettersConsecutiveTypesTest extends PHPUnit_Framework_TestCase {
+class PronounceableWord_Tests_LastLettersConsecutiveTypesTest extends PHPUnit_Framework_TestCase {
     public function testCountFromWordOfOneType() {
-        $lastLettersconsecutiveTypes = new LastLettersConsecutiveTypes();
+        $lastLettersConsecutiveTypes = new PronounceableWord_LastLettersConsecutiveTypes();
 
-        foreach (LetterTypesConfiguration::$letterTypesWithLetters as $letterType => $letters) {
+        foreach (PronounceableWord_Configuration_LetterTypes::$letterTypesWithLetters as $letterType => $letters) {
             $maximumLetterNumber = strlen($letters);
             $word = '';
             for ($letterNumber = 1; $letterNumber < $maximumLetterNumber; $letterNumber++) {
                 $letter = rand(0, strlen($letters) - 1);
                 $word .= $letters[$letter];
 
-                $this->assertSame($letterNumber, $lastLettersconsecutiveTypes->countFromWord($word));
+                $this->assertSame($letterNumber, $lastLettersConsecutiveTypes->countFromWord($word));
             }
         }
     }
 
     public function testCountFromWordOfMultipleTypes() {
-        $lastLettersconsecutiveTypes = new LastLettersConsecutiveTypes();
+        $lastLettersConsecutiveTypes = new PronounceableWord_LastLettersConsecutiveTypes();
 
-        foreach (LetterTypesConfiguration::$letterTypesWithLetters as $letterType => $letters) {
+        foreach (PronounceableWord_Configuration_LetterTypes::$letterTypesWithLetters as $letterType => $letters) {
             $maximumLetterNumber = strlen($letters);
 
-            foreach (LetterTypesConfiguration::$letterTypesWithLetters as $otherLetterType => $otherLetters) {
+            foreach (PronounceableWord_Configuration_LetterTypes::$letterTypesWithLetters as $otherLetterType => $otherLetters) {
                 if ($otherLetterType != $letterType) {
                     $word = $otherLetters;
                     break;
@@ -43,7 +43,7 @@ class LastLettersConsecutiveTypesTest extends PHPUnit_Framework_TestCase {
                 $letter = rand(0, strlen($letters) - 1);
                 $word .= $letters[$letter];
 
-                $this->assertSame($letterNumber, $lastLettersconsecutiveTypes->countFromWord($word));
+                $this->assertSame($letterNumber, $lastLettersConsecutiveTypes->countFromWord($word));
             }
         }
     }

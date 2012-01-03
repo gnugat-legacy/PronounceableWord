@@ -8,25 +8,25 @@
  * file that was distributed with this source code.
  */
 
-require_once dirname(__FILE__) . '/../lib/LinkedLetters.php';
+require_once dirname(__FILE__) . '/../src/PronounceableWord/LinkedLetters.php';
 
-class LinkedLettersTest extends PHPUnit_Framework_TestCase {
+class PronounceableWord_Tests_LinkedLettersTest extends PHPUnit_Framework_TestCase {
     public function testPickLetter() {
-        $linkedLetters = new LinkedLetters();
+        $linkedLetters = new PronounceableWord_LinkedLetters();
 
         $maximumTestNumber = 1000;
         for ($currentTestNumber = 0; $currentTestNumber < $maximumTestNumber; $currentTestNumber++) {
             $chosenLetter = $linkedLetters->pickLetter();
 
-            $this->assertArrayHasKey($chosenLetter, LinkedLettersConfiguration::$lettersWithLinkedLetters);
+            $this->assertArrayHasKey($chosenLetter, PronounceableWord_Configuration_LinkedLetters::$lettersWithLinkedLetters);
         }
     }
 
     public function testPickLinkedLetter() {
-        $linkedLetters = new LinkedLetters();
+        $linkedLetters = new PronounceableWord_LinkedLetters();
 
         $maximumTestNumber = 1000;
-        foreach (LinkedLettersConfiguration::$lettersWithLinkedLetters as $currentLetter => $currentLinkedLetters) {
+        foreach (PronounceableWord_Configuration_LinkedLetters::$lettersWithLinkedLetters as $currentLetter => $currentLinkedLetters) {
             for ($currentTestNumber = 0; $currentTestNumber < $maximumTestNumber; $currentTestNumber++) {
                 $chosenLinkedLetter = $linkedLetters->pickLinkedLetter($currentLetter);
 
@@ -38,10 +38,10 @@ class LinkedLettersTest extends PHPUnit_Framework_TestCase {
     }
 
     public function testPickLinkedLetterDifferentFromGivenLetters() {
-        $linkedLetters = new LinkedLetters();
+        $linkedLetters = new PronounceableWord_LinkedLetters();
 
         $maximumTestNumber = 1000;
-        foreach (LinkedLettersConfiguration::$lettersWithLinkedLetters as $currentLetter => $currentLinkedLetters) {
+        foreach (PronounceableWord_Configuration_LinkedLetters::$lettersWithLinkedLetters as $currentLetter => $currentLinkedLetters) {
             for ($currentTestNumber = 0; $currentTestNumber < $maximumTestNumber; $currentTestNumber++) {
                 $chosenLinkedLetter = $linkedLetters->pickLinkedLetterDifferentFromGivenLetters($currentLetter, $currentLetter);
 

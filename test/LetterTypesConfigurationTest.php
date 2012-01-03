@@ -8,14 +8,14 @@
  * file that was distributed with this source code.
  */
 
-require_once dirname(__FILE__) . '/../config/LetterTypesConfiguration.php';
+require_once dirname(__FILE__) . '/../src/PronounceableWord/Configuration/LetterTypes.php';
 
-class LetterTypesConfigurationTest extends PHPUnit_Framework_TestCase {
+class PronounceableWord_Tests_Configuration_LetterTypesTest extends PHPUnit_Framework_TestCase {
     public function testAreLettersInOnlyOneType() {
-        foreach (LetterTypesConfiguration::$letterTypesWithLetters as $currentType => $lettersOfCurrentType) {
+        foreach (PronounceableWord_Configuration_LetterTypes::$letterTypesWithLetters as $currentType => $lettersOfCurrentType) {
             $maximumLetterIndex = strlen($lettersOfCurrentType);
             $areLettersInOnlyOneType = true;
-            foreach (LetterTypesConfiguration::$letterTypesWithLetters as $checkedType => $lettersOfCheckedType) {
+            foreach (PronounceableWord_Configuration_LetterTypes::$letterTypesWithLetters as $checkedType => $lettersOfCheckedType) {
                 if ($currentType !== $checkedType) {
                     for ($letterIndex = 0; $letterIndex < $maximumLetterIndex; $letterIndex++) {
                         $isLetterInLetters = strpos($lettersOfCheckedType, $lettersOfCurrentType[$letterIndex]);
