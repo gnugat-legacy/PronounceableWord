@@ -38,7 +38,8 @@ with its linked letters.
 If you remove a letter, don't forget to remove it from every linked letters,
 and also for the ``LetterTypesConfiguration``.
 
-If you add a new letter, don't forget to add it to the ``LetterTypesConfiguration``.
+If you add a new letter, don't forget to add it to the
+``LetterTypesConfiguration``.
 
 Finally, make sure that each letters is associated to at least one letter of
 a different type.

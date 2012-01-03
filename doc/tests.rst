@@ -2,7 +2,8 @@ Tests
 =====
 
 In order to keep PronounceableWordGenerator stable and to maintain a high
-quality, tests have been written using PHPUnit >= 3.5 (https://github.com/sebastianbergmann/phpunit/).
+quality, tests have been written using PHPUnit >= 3.5\
+(https://github.com/sebastianbergmann/phpunit/).
 
 Installation
 ============
