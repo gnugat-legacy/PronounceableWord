@@ -37,7 +37,7 @@ has "a" as a linked letter, and the letter "a" has "l" has a linked letter::
     }
 
 Now, after generating your words with PronounceableWordGenerator, you can use
-OffensiveAndInsultingWords to filter any words you might find offensive or
+``OffensiveAndInsultingWords`` to filter any words you might find offensive or
 insulting::
 
     <?php
