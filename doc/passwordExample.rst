@@ -135,7 +135,7 @@ If you set it to "Off" in your "php.ini", you should be able to continue.
 Testing
 -------
 
-To test your configuration, just run the following command in CLI:
+To test your configuration, just run the following command in CLI::
 
     phpunit ./vendors/PronounceableWord/test
 
@@ -158,7 +158,7 @@ Conclusion
 ==========
 
 You now have a pronounceable password generator. If you want to use upper and
-lower case, you should use a function aferwards:
+lower case, you should use a function aferwards::
 
     <?php
     // File "./addUppercase.php"
@@ -177,7 +177,7 @@ lower case, you should use a function aferwards:
         return $word;
     }
 
-And:
+And::
 
     <?php
     // File "/index.php".
