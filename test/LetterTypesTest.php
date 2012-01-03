@@ -8,13 +8,13 @@
  * file that was distributed with this source code.
  */
 
-require_once dirname(__FILE__) . '/../lib/LetterTypes.php';
+require_once dirname(__FILE__) . '/../src/PronounceableWord/LetterTypes.php';
 
-class LetterTypesTest extends PHPUnit_Framework_TestCase {
+class PronounceableWord_Tests_LetterTypesTest extends PHPUnit_Framework_TestCase {
     public function testGetLetterType() {
-        $letterTypes = new LetterTypes();
+        $letterTypes = new PronounceableWord_LetterTypes();
 
-        foreach (LetterTypesConfiguration::$letterTypesWithLetters as $letterType => $letters) {
+        foreach (PronounceableWord_Configuration_LetterTypes::$letterTypesWithLetters as $letterType => $letters) {
             $maximumLetterIndex = strlen($letters);
             for ($letterIndex = 0; $letterIndex < $maximumLetterIndex; $letterIndex++) {
                 $letter = $letters[$letterIndex];
@@ -25,9 +25,9 @@ class LetterTypesTest extends PHPUnit_Framework_TestCase {
     }
 
     public function testGetLettersOfGivenType() {
-        $letterTypes = new LetterTypes();
+        $letterTypes = new PronounceableWord_LetterTypes();
 
-        foreach (LetterTypesConfiguration::$letterTypesWithLetters as $letterType => $letters) {
+        foreach (PronounceableWord_Configuration_LetterTypes::$letterTypesWithLetters as $letterType => $letters) {
             $this->assertSame($letters, $letterTypes->getLettersOfGivenType($letterType));
             $maximumLetterIndex = strlen($letters);
         }
@@ -36,6 +36,6 @@ class LetterTypesTest extends PHPUnit_Framework_TestCase {
     public function testIsThereAtLeastTwoTypes() {
         $minimumLetterTypesNumber = 2;
 
-        $this->assertGreaterThanOrEqual($minimumLetterTypesNumber, LetterTypesConfiguration::$letterTypesWithLetters);
+        $this->assertGreaterThanOrEqual($minimumLetterTypesNumber, PronounceableWord_Configuration_LetterTypes::$letterTypesWithLetters);
     }
 }

@@ -8,16 +8,16 @@
  * file that was distributed with this source code.
  */
 
-require_once dirname(__FILE__) . '/../config/PronounceableWordGeneratorConfiguration.php';
+require_once dirname(__FILE__) . '/../src/PronounceableWord/Configuration/Generator.php';
 
-class PronounceableWordGeneratorConfigurationTest extends PHPUnit_Framework_TestCase {
+class PronounceableWord_Tests_Configuration_GeneratorTest extends PHPUnit_Framework_TestCase {
     protected $minimumPositiveNumber = 1;
 
     public function testIsMaximumConsecutiveTypesAtTheBeginingPositive() {
-        $this->assertGreaterThanOrEqual($this->minimumPositiveNumber, PronounceableWordGeneratorConfiguration::$maximumConsecutiveTypesAtTheBegining);
+        $this->assertGreaterThanOrEqual($this->minimumPositiveNumber, PronounceableWord_Configuration_Generator::$maximumConsecutiveTypesAtTheBegining);
     }
 
     public function testIsMaximumConsecutiveTypesInTheWordPositive() {
-        $this->assertGreaterThanOrEqual($this->minimumPositiveNumber, PronounceableWordGeneratorConfiguration::$maximumConsecutiveTypesInTheWord);
+        $this->assertGreaterThanOrEqual($this->minimumPositiveNumber, PronounceableWord_Configuration_Generator::$maximumConsecutiveTypesInTheWord);
     }
 }
