@@ -8,13 +8,11 @@
  * file that was distributed with this source code.
  */
 
-require_once dirname(__FILE__) . '/LetterTypes.php';
-
 class PronounceableWord_LastLettersConsecutiveTypes {
     protected $letterTypes;
 
-    public function __construct() {
-        $this->letterTypes = new PronounceableWord_LetterTypes();
+    public function __construct($letterTypes) {
+        $this->letterTypes = $letterTypes;
     }
 
     public function countFromWord($word) {

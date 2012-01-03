@@ -8,13 +8,17 @@
  * file that was distributed with this source code.
  */
 
+require_once dirname(__FILE__) . '/../../../src/PronounceableWord/Configuration/LetterTypes.php';
+require_once dirname(__FILE__) . '/../../../src/PronounceableWord/LetterTypes.php';
 require_once dirname(__FILE__) . '/../../../src/PronounceableWord/LastLettersConsecutiveTypes.php';
 
 class PronounceableWord_Tests_LastLettersConsecutiveTypesTest extends PHPUnit_Framework_TestCase {
     public function testCountFromWordOfOneType() {
-        $lastLettersConsecutiveTypes = new PronounceableWord_LastLettersConsecutiveTypes();
+        $letterTypesConfiguration = new PronounceableWord_Configuration_LetterTypes();
+        $letterTypes = new PronounceableWord_LetterTypes($letterTypesConfiguration);
+        $lastLettersConsecutiveTypes = new PronounceableWord_LastLettersConsecutiveTypes($letterTypes);
 
-        foreach (PronounceableWord_Configuration_LetterTypes::$letterTypesWithLetters as $letterType => $letters) {
+        foreach ($letterTypesConfiguration->letterTypesWithLetters as $letterType => $letters) {
             $maximumLetterNumber = strlen($letters);
             $word = '';
             for ($letterNumber = 1; $letterNumber < $maximumLetterNumber; $letterNumber++) {
@@ -27,12 +31,14 @@ class PronounceableWord_Tests_LastLettersConsecutiveTypesTest extends PHPUnit_Fr
     }
 
     public function testCountFromWordOfMultipleTypes() {
-        $lastLettersConsecutiveTypes = new PronounceableWord_LastLettersConsecutiveTypes();
+        $letterTypesConfiguration = new PronounceableWord_Configuration_LetterTypes();
+        $letterTypes = new PronounceableWord_LetterTypes($letterTypesConfiguration);
+        $lastLettersConsecutiveTypes = new PronounceableWord_LastLettersConsecutiveTypes($letterTypes);
 
-        foreach (PronounceableWord_Configuration_LetterTypes::$letterTypesWithLetters as $letterType => $letters) {
+        foreach ($letterTypesConfiguration->letterTypesWithLetters as $letterType => $letters) {
             $maximumLetterNumber = strlen($letters);
 
-            foreach (PronounceableWord_Configuration_LetterTypes::$letterTypesWithLetters as $otherLetterType => $otherLetters) {
+            foreach ($letterTypesConfiguration->letterTypesWithLetters as $otherLetterType => $otherLetters) {
                 if ($otherLetterType != $letterType) {
                     $word = $otherLetters;
                     break;
