@@ -14,9 +14,11 @@ require_once dirname(__FILE__) . '/../../../../src/PronounceableWord/LetterTypes
 
 class PronounceableWord_Tests_Configuration_LinkedLettersAndTypesTest extends PHPUnit_Framework_TestCase {
     public function testAreAllLettersFromLinkedLettersInLettersFromLetterTypes() {
+        $letterTypesConfiguration = new PronounceableWord_Configuration_LetterTypes();
+
         foreach (PronounceableWord_Configuration_LinkedLetters::$lettersWithLinkedLetters as $letter => $linkedLettersToIgnore) {
             $isLetterInTypes = false;
-            foreach (PronounceableWord_Configuration_LetterTypes::$letterTypesWithLetters as $lettersOfType) {
+            foreach ($letterTypesConfiguration->letterTypesWithLetters as $lettersOfType) {
                 $isLetterInLetters = strpos($lettersOfType, $letter);
 
                 if (false !== $isLetterInLetters) {
@@ -30,7 +32,8 @@ class PronounceableWord_Tests_Configuration_LinkedLettersAndTypesTest extends PH
     }
 
     public function testHaveLettersAtLeastOneLinkedLetterOfDifferentType() {
-        $letterTypes = new PronounceableWord_LetterTypes();
+        $letterTypesConfiguration = new PronounceableWord_Configuration_LetterTypes();
+        $letterTypes = new PronounceableWord_LetterTypes($letterTypesConfiguration);
 
         foreach (PronounceableWord_Configuration_LinkedLetters::$lettersWithLinkedLetters as $letter => $linkedLetters) {
             $letterType = $letterTypes->getLetterType($letter);

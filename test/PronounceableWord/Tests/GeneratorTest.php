@@ -16,9 +16,10 @@ require_once dirname(__FILE__) . '/../../../src/PronounceableWord/Generator.php'
 
 class PronounceableWord_Tests_GeneratorTest extends PHPUnit_Framework_TestCase {
     public function testGeneratedLength() {
+        $letterTypesConfiguration = new PronounceableWord_Configuration_LetterTypes();
         $generatorConfiguration = new PronounceableWord_Configuration_Generator();
         $linkedLetters = new PronounceableWord_LinkedLetters();
-        $letterTypes = new PronounceableWord_LetterTypes();
+        $letterTypes = new PronounceableWord_LetterTypes($letterTypesConfiguration);
         $lastLettersConsecutiveTypes = new PronounceableWord_LastLettersConsecutiveTypes($letterTypes);
 
         $maximumLength = 100;

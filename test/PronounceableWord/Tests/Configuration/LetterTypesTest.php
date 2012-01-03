@@ -12,10 +12,12 @@ require_once dirname(__FILE__) . '/../../../../src/PronounceableWord/Configurati
 
 class PronounceableWord_Tests_Configuration_LetterTypesTest extends PHPUnit_Framework_TestCase {
     public function testAreLettersInOnlyOneType() {
-        foreach (PronounceableWord_Configuration_LetterTypes::$letterTypesWithLetters as $currentType => $lettersOfCurrentType) {
+        $configuration = new PronounceableWord_Configuration_LetterTypes();
+
+        foreach ($configuration->letterTypesWithLetters as $currentType => $lettersOfCurrentType) {
             $maximumLetterIndex = strlen($lettersOfCurrentType);
             $areLettersInOnlyOneType = true;
-            foreach (PronounceableWord_Configuration_LetterTypes::$letterTypesWithLetters as $checkedType => $lettersOfCheckedType) {
+            foreach ($configuration->letterTypesWithLetters as $checkedType => $lettersOfCheckedType) {
                 if ($currentType !== $checkedType) {
                     for ($letterIndex = 0; $letterIndex < $maximumLetterIndex; $letterIndex++) {
                         $isLetterInLetters = strpos($lettersOfCheckedType, $lettersOfCurrentType[$letterIndex]);
