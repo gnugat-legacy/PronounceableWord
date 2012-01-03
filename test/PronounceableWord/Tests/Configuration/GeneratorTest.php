@@ -14,10 +14,14 @@ class PronounceableWord_Tests_Configuration_GeneratorTest extends PHPUnit_Framew
     protected $minimumPositiveNumber = 1;
 
     public function testIsMaximumConsecutiveTypesAtTheBeginingPositive() {
-        $this->assertGreaterThanOrEqual($this->minimumPositiveNumber, PronounceableWord_Configuration_Generator::$maximumConsecutiveTypesAtTheBegining);
+        $generatorConfiguration = new PronounceableWord_Configuration_Generator();
+
+        $this->assertGreaterThanOrEqual($this->minimumPositiveNumber, $generatorConfiguration->maximumConsecutiveTypesAtTheBegining);
     }
 
     public function testIsMaximumConsecutiveTypesInTheWordPositive() {
-        $this->assertGreaterThanOrEqual($this->minimumPositiveNumber, PronounceableWord_Configuration_Generator::$maximumConsecutiveTypesInTheWord);
+        $generatorConfiguration = new PronounceableWord_Configuration_Generator();
+
+        $this->assertGreaterThanOrEqual($this->minimumPositiveNumber, $generatorConfiguration->maximumConsecutiveTypesInTheWord);
     }
 }
