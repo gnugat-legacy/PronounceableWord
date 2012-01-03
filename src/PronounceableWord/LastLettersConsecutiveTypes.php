@@ -10,11 +10,11 @@
 
 require_once dirname(__FILE__) . '/LetterTypes.php';
 
-class LastLettersConsecutiveTypes {
+class PronounceableWord_LastLettersConsecutiveTypes {
     protected $letterTypes;
 
     public function __construct() {
-        $this->letterTypes = new LetterTypes();
+        $this->letterTypes = new PronounceableWord_LetterTypes();
     }
 
     public function countFromWord($word) {
