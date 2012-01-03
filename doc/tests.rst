@@ -35,5 +35,6 @@ instructions: http://www.phpunit.de/manual/3.0/en/installation.html
 Running the tests
 =================
 
-Tests can be run by CLI, using the command ``phpunit file`` (file can be
-the ``./test`` directory, or the test files).
+Tests can be run by CLI, using the following command::
+
+phpunit ./test
