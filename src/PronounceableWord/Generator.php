@@ -19,9 +19,9 @@ class PronounceableWord_Generator {
     protected $lastLettersConsecutiveTypes;
 
     public function __construct($linkedLetter, $letterTypes, $lastLettersConsecutiveTypes) {
-        $this->linkedLetters = new PronounceableWord_LinkedLetters();
-        $this->letterTypes = new PronounceableWord_LetterTypes();
-        $this->lastLettersConsecutiveTypes = new PronounceableWord_LastLettersConsecutiveTypes();
+        $this->linkedLetters = $linkedLetter;
+        $this->letterTypes = $letterTypes;
+        $this->lastLettersConsecutiveTypes = $lastLettersConsecutiveTypes;
     }
 
     public function generateWordOfGivenLength($givenLength) {
