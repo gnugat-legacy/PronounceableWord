@@ -8,11 +8,13 @@
  * file that was distributed with this source code.
  */
 
+require_once dirname(__FILE__) . '/../../../src/PronounceableWord/LetterTypes.php';
 require_once dirname(__FILE__) . '/../../../src/PronounceableWord/LastLettersConsecutiveTypes.php';
 
 class PronounceableWord_Tests_LastLettersConsecutiveTypesTest extends PHPUnit_Framework_TestCase {
     public function testCountFromWordOfOneType() {
-        $lastLettersConsecutiveTypes = new PronounceableWord_LastLettersConsecutiveTypes();
+        $letterTypes = new PronounceableWord_LetterTypes();
+        $lastLettersConsecutiveTypes = new PronounceableWord_LastLettersConsecutiveTypes($letterTypes);
 
         foreach (PronounceableWord_Configuration_LetterTypes::$letterTypesWithLetters as $letterType => $letters) {
             $maximumLetterNumber = strlen($letters);
@@ -27,7 +29,8 @@ class PronounceableWord_Tests_LastLettersConsecutiveTypesTest extends PHPUnit_Fr
     }
 
     public function testCountFromWordOfMultipleTypes() {
-        $lastLettersConsecutiveTypes = new PronounceableWord_LastLettersConsecutiveTypes();
+        $letterTypes = new PronounceableWord_LetterTypes();
+        $lastLettersConsecutiveTypes = new PronounceableWord_LastLettersConsecutiveTypes($letterTypes);
 
         foreach (PronounceableWord_Configuration_LetterTypes::$letterTypesWithLetters as $letterType => $letters) {
             $maximumLetterNumber = strlen($letters);

@@ -17,7 +17,7 @@ class PronounceableWord_Tests_GeneratorTest extends PHPUnit_Framework_TestCase {
     public function testGeneratedLength() {
         $linkedLetters = new PronounceableWord_LinkedLetters();
         $letterTypes = new PronounceableWord_LetterTypes();
-        $lastLettersConsecutiveTypes = new PronounceableWord_LastLettersConsecutiveTypes();
+        $lastLettersConsecutiveTypes = new PronounceableWord_LastLettersConsecutiveTypes($letterTypes);
 
         $maximumLength = 100;
         for ($length = 1; $length <= $maximumLength; $length++) {
