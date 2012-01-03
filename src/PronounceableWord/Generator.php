@@ -21,7 +21,7 @@ class PronounceableWord_Generator {
     protected $letterTypes;
     protected $lastLettersConsecutiveTypes;
 
-    public function __construct() {
+    public function __construct($linkedLetter, $letterTypes, $lastLettersConsecutiveTypes) {
         $this->linkedLetters = new PronounceableWord_LinkedLetters();
         $this->letterTypes = new PronounceableWord_LetterTypes();
         $this->lastLettersConsecutiveTypes = new PronounceableWord_LastLettersConsecutiveTypes();
