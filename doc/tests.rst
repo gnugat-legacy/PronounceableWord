@@ -37,4 +37,4 @@ Running the tests
 
 Tests can be run by CLI, using the following command::
 
-phpunit ./test
+  phpunit ./test
