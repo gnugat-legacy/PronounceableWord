@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-require_once dirname(__FILE__) . '/../src/PronounceableWord/Generator.php';
+require_once dirname(__FILE__) . '/../../../src/PronounceableWord/Generator.php';
 
 class PronounceableWord_Tests_GeneratorTest extends PHPUnit_Framework_TestCase {
     public function testGeneratedLength() {
