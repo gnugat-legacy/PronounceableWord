@@ -12,9 +12,11 @@ require_once dirname(__FILE__) . '/../../../../src/PronounceableWord/Configurati
 
 class PronounceableWord_Tests_Configuration_LinkedLettersTest extends PHPUnit_Framework_TestCase {
     public function testAreAllLettersInAtLeastOneLinkedLetters() {
-        foreach (PronounceableWord_Configuration_LinkedLetters::$lettersWithLinkedLetters as $letter => $linkedLettersToIgnore) {
+        $configuration = new PronounceableWord_Configuration_LinkedLetters();
+
+        foreach ($configuration->lettersWithLinkedLetters as $letter => $linkedLettersToIgnore) {
             $isInAtLeastOneLinkedLetters = false;
-            foreach (PronounceableWord_Configuration_LinkedLetters::$lettersWithLinkedLetters as $letterToIgnore => $linkedLetters) {
+            foreach ($configuration->lettersWithLinkedLetters as $letterToIgnore => $linkedLetters) {
                 $isLetterInLinkedLetters = strpos($linkedLetters, $letter);
 
                 if (false !== $isLetterInLinkedLetters) {
@@ -28,9 +30,11 @@ class PronounceableWord_Tests_Configuration_LinkedLettersTest extends PHPUnit_Fr
     }
 
     public function testAreAllLinkedLettersInLetters() {
-        foreach (PronounceableWord_Configuration_LinkedLetters::$lettersWithLinkedLetters as $letterToIgnore => $linkedLetters) {
+        $configuration = new PronounceableWord_Configuration_LinkedLetters();
+
+        foreach ($configuration->lettersWithLinkedLetters as $letterToIgnore => $linkedLetters) {
             $isLinkedLetterInLetters = false;
-            foreach (PronounceableWord_Configuration_LinkedLetters::$lettersWithLinkedLetters as $letter => $linkedLettersToIgnore) {
+            foreach ($configuration->lettersWithLinkedLetters as $letter => $linkedLettersToIgnore) {
                 $isLetterInLinkedLetters = strpos($linkedLetters, $letter);
 
                 if (false !== $isLetterInLinkedLetters) {

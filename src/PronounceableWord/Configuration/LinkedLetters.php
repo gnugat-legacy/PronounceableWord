@@ -1,6 +1,6 @@
 <?php
 class PronounceableWord_Configuration_LinkedLetters {
-    public static $lettersWithLinkedLetters = array(
+    public $lettersWithLinkedLetters = array(
         'a' => 'abcdefghijklmnoprstuvwxyz',
         'b' => 'abdefghijlmnorstuvy',
         'c' => 'acdehiklorstuy',
