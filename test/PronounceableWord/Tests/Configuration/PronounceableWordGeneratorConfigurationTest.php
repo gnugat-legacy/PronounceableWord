@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-require_once dirname(__FILE__) . '/../src/PronounceableWord/Configuration/Generator.php';
+require_once dirname(__FILE__) . '/../../../../src/PronounceableWord/Configuration/Generator.php';
 
 class PronounceableWord_Tests_Configuration_GeneratorTest extends PHPUnit_Framework_TestCase {
     protected $minimumPositiveNumber = 1;

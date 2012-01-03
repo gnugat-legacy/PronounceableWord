@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-require_once dirname(__FILE__) . '/../src/PronounceableWord/LastLettersConsecutiveTypes.php';
+require_once dirname(__FILE__) . '/../../../src/PronounceableWord/LastLettersConsecutiveTypes.php';
 
 class PronounceableWord_Tests_LastLettersConsecutiveTypesTest extends PHPUnit_Framework_TestCase {
     public function testCountFromWordOfOneType() {

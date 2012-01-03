@@ -8,9 +8,9 @@
  * file that was distributed with this source code.
  */
 
-require_once dirname(__FILE__) . '/../src/PronounceableWord/Configuration/LinkedLetters.php';
-require_once dirname(__FILE__) . '/../src/PronounceableWord/Configuration/LetterTypes.php';
-require_once dirname(__FILE__) . '/../src/PronounceableWord/LetterTypes.php';
+require_once dirname(__FILE__) . '/../../../../src/PronounceableWord/Configuration/LinkedLetters.php';
+require_once dirname(__FILE__) . '/../../../../src/PronounceableWord/Configuration/LetterTypes.php';
+require_once dirname(__FILE__) . '/../../../../src/PronounceableWord/LetterTypes.php';
 
 class PronounceableWord_Tests_Configuration_LinkedLettersAndTypesTest extends PHPUnit_Framework_TestCase {
     public function testAreAllLettersFromLinkedLettersInLettersFromLetterTypes() {
