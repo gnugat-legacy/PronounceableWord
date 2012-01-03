@@ -9,9 +9,6 @@
  */
 
 require_once dirname(__FILE__) . '/Configuration/Generator.php';
-require_once dirname(__FILE__) . '/LinkedLetters.php';
-require_once dirname(__FILE__) . '/LetterTypes.php';
-require_once dirname(__FILE__) . '/LastLettersConsecutiveTypes.php';
 
 class PronounceableWord_Generator {
     protected $word;
