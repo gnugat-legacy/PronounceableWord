@@ -26,7 +26,7 @@ Linked letters configuration
 
 Every letters can be linked to each other to form words. However, for a word
 to be pronounceable, a letter can't be linked with every other. This is what
-the class ``LinkedLettersConfiguration`` is for: setting to each letters
+the class ``PronounceableWord_Configuration_LinkedLetters`` is for: setting to each letters
 their own linked letters.
 
 In order to make an accessible and more readable configuration, this setting
@@ -36,10 +36,10 @@ linked letters by adding or removing them, and you can add or remove a letter
 with its linked letters.
 
 If you remove a letter, don't forget to remove it from every linked letters,
-and also for the ``LetterTypesConfiguration``.
+and also for the ``PronounceableWord_Configuration_LetterTypes``.
 
 If you add a new letter, don't forget to add it to the
-``LetterTypesConfiguration``.
+``PronounceableWord_Configuration_LetterTypes``.
 
 Finally, make sure that each letters is associated to at least one letter of
 a different type.
@@ -55,8 +55,8 @@ In order to make an accessible and more readable configuration, this setting is
 saved in an associative array, where the key is the letter type and the
 associated string is the set of letters.
 
-Pronounceable word generator configuration
-------------------------------------------
+Generator configuration
+-----------------------
 
 Finally, you can manage the number of consecutive letters of the same type
 occurs:
@@ -70,10 +70,10 @@ Check your configuration by running tests
 To check if everything went well, you can run the following tests
 (see how to test in ``./doc/tests.rst``):
 
-* ``./test/LetterTypesConfigurationTest.php``;
-* ``./test/LinkedLettersConfigurationTest.php``;
-* ``./test/LinkedLettersAndTypesConfigurationTest.php``;
-* ``./test/PronounceableWordGeneratorTest.php``.
+* ``./test/PronounceableWord/Tests/Configuration/LetterTypesTest.php``;
+* ``./test/PronounceableWord/Tests/Configuration/LinkedLettersTest.php``;
+* ``./test/PronounceableWord/Tests/Configuration/LinkedLettersAndTypesTest.php``;
+* ``./test/PronounceableWord/Tests/Configuration/GeneratorTest.php``.
 
 Examples
 ========
@@ -81,9 +81,9 @@ Examples
 Here are some short configuration examples, to show how it works::
 
     <?php
-    // File "./config/LinkedLettersConfiguration.php".
+    // File "./src/PronounceableWord/Configuration/LinkedLetters.php".
     
-    class LinkedLettersConfiguration {
+    class PronounceableWord_Configuration_LinkedLetters {
         public static $lettersWithLinkedLetters = array(
             'a' => 'bc',
             'b' => 'ac',
@@ -93,9 +93,9 @@ Here are some short configuration examples, to show how it works::
     }
 
     <?php
-    // File "./config/LetterTypesConfiguration.php".
+    // File "./src/PronounceableWord/Configuration/LetterTypes.php".
 
-    class LetterTypesConfiguration {
+    class PronounceableWord_Configuration_LetterTypes {
         public static $letterTypesWithLetters = array(
             'vowels' => 'a',
             'consonants' => 'bc',
@@ -104,9 +104,9 @@ Here are some short configuration examples, to show how it works::
     }
 
     <?php
-    // File "./config/PronounceableWordGeneratorConfiguration.php".
+    // File "./src/PronounceableWord/Configuration/Generator.php".
 
-    class PronounceableWordGeneratorConfiguration {
+    class PronounceableWord_Configuration_Generator {
         public static $maximumConsecutiveTypesAtTheBegining = 1;
         public static $maximumConsecutiveTypesInTheWord = 2;
     }
