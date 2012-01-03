@@ -2,7 +2,7 @@ Tests
 =====
 
 In order to keep PronounceableWordGenerator stable and to maintain a high
-quality, tests have been written using PHPUnit >= 3.5\
+quality, tests have been written using PHPUnit >= 3.5 
 (https://github.com/sebastianbergmann/phpunit/).
 
 Installation
@@ -17,7 +17,7 @@ PEAR (http://pear.php.net/) is necessary to use PHPUnit. To install it, follow
 these instructions: http://pear.php.net/manual/en/installation.getting.php
 
 If you are on Windows, and using WAMP or EasyPHP (or maybe others web
-development plateforms), you might encounter the following error:
+development plateforms), you might encounter the following error::
 
     phar "C:\wamp\bin\php\php5.3.0\PEAR\go-pear.phar" does not have a signature PHP Warning: require_once(phar://go-pear.par/index.php): failed to open stream: phar error: invalid url or non-existent phar "phar://go-pear.phar/index.php" in C:\wamp\bin\php\php5.3.0\PEAR\go-pear.phar on line 1236
 
