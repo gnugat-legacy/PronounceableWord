@@ -8,26 +8,17 @@
  * file that was distributed with this source code.
  */
 
-require_once dirname(__FILE__) . '/../../../src/PronounceableWord/Configuration/Generator.php';
-require_once dirname(__FILE__) . '/../../../src/PronounceableWord/LinkedLetters.php';
-require_once dirname(__FILE__) . '/../../../src/PronounceableWord/LetterTypes.php';
-require_once dirname(__FILE__) . '/../../../src/PronounceableWord/LastLettersConsecutiveTypes.php';
-require_once dirname(__FILE__) . '/../../../src/PronounceableWord/Generator.php';
+require_once dirname(__FILE__) . '/../../../src/PronounceableWord/DependencyInjectionContainer.php';
 
 class PronounceableWord_Tests_GeneratorTest extends PHPUnit_Framework_TestCase {
     public function testGeneratedLength() {
-        $linkedLettersConfiguration = new PronounceableWord_Configuration_LinkedLetters();
-        $letterTypesConfiguration = new PronounceableWord_Configuration_LetterTypes();
-        $generatorConfiguration = new PronounceableWord_Configuration_Generator();
-        $linkedLetters = new PronounceableWord_LinkedLetters($linkedLettersConfiguration);
-        $letterTypes = new PronounceableWord_LetterTypes($letterTypesConfiguration);
-        $lastLettersConsecutiveTypes = new PronounceableWord_LastLettersConsecutiveTypes($letterTypes);
+        $container = new PronounceableWord_DependencyInjectionContainer();
 
         $maximumLength = 100;
         for ($length = 1; $length <= $maximumLength; $length++) {
-            $pronounceableWordGenerator = new PronounceableWord_Generator($linkedLetters, $letterTypes, $lastLettersConsecutiveTypes, $generatorConfiguration);
+            $generator = $container->getGenerator();
 
-            $generatedWord = $pronounceableWordGenerator->generateWordOfGivenLength($length);
+            $generatedWord = $generator->generateWordOfGivenLength($length);
 
             $this->assertEquals($length, strlen($generatedWord));
         }
