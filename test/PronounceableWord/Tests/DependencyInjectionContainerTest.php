@@ -14,11 +14,9 @@ class PronounceableWord_Tests_DependencyInjectionContainerTest extends PHPUnit_F
     public function testClassNames() {
         $container = new PronounceableWord_DependencyInjectionContainer();
 
-        foreach ($container->classNames as $className => $class) {
-            $completeClassName = 'PronounceableWord_' . $className;
-            $getMethodName = 'get' . $className;
-
-            $this->assertInstanceOf($completeClassName, $container->{$getMethodName}());
+        foreach ($container->classNames as $classType => $className) {
+            $expectedClassName = 'PronounceableWord_' . $classType;
+            $this->assertSame($expectedClassName, $className);
         }
     }
 
