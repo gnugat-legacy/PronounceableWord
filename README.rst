@@ -21,24 +21,25 @@ You should have a fully operationnal pronounceable word generator::
     <?php
     // File "/index.php".
     
-    require_once dirname(__FILE__) . '/vendors/PronounceableWord/src/PronounceableWord/Generator.php';
+    require_once dirname(__FILE__) . '/vendor/PronounceableWord/src/PronounceableWord/DependencyInjectionContainer.php';
 
     define('MINIMUM_LENGTH', 5);
     define('MAXIMUM_LENGTH', 11);
 
     $length = rand(MINIMUM_LENGTH, MAXIMUM_LENGTH);
 
-    $generator = new PronounceableWord_Generator();
+    $container = new PronounceableWord_DependencyInjectionContainer();
+    $generator = $container->getGenerator();
     $word = $generator->generateWordOfGivenLength($length);
 
 Configuration
 -------------
 
 To customize the algorithm, the letters used, the linked letters or the types,
-just edit as you wish the files in the ``./src/PronounceableWord/Configuration``
-directory (see how to configure in ``./doc/configuration.rst``).
-
-Don't forget to run tests afterward.
+just copy and modify as you wish the files in the
+``./src/PronounceableWord/Configuration`` directory and then pass your
+configuration classes to the container (see how to configure in
+``./doc/configuration.rst``).
 
 Tests
 -----

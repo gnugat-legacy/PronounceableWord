@@ -10,12 +10,13 @@
  * file that was distributed with this source code.
  */
 
-require_once dirname(__FILE__) . '/../src/PronounceableWord/Generator.php';
+require_once dirname(__FILE__) . '/../src/PronounceableWord/DependencyInjectionContainer.php';
 
 define('MINIMUM_LENGTH', 4);
 define('MAXIMUM_LENGTH', 12);
 
-$generator = new PronounceableWord_Generator();
+$container = new PronounceableWord_DependencyInjectionContainer();
+$generator = $container->getGenerator();
 
 $maximumGenerationNumber = 20;
 for ($generationNumber = 0; $generationNumber < $maximumGenerationNumber; $generationNumber++) {

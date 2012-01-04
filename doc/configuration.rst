@@ -26,8 +26,8 @@ Linked letters configuration
 
 Every letters can be linked to each other to form words. However, for a word
 to be pronounceable, a letter can't be linked with every other. This is what
-the class ``PronounceableWord_Configuration_LinkedLetters`` is for: setting to each letters
-their own linked letters.
+the class ``PronounceableWord_Configuration_LinkedLetters`` is for: setting to
+each letters their own linked letters.
 
 In order to make an accessible and more readable configuration, this setting
 is saved in an associative array, where the key is the letter and the
@@ -64,27 +64,17 @@ occurs:
 * at the begining of the word;
 * in the middle of the word.
 
-Check your configuration by running tests
------------------------------------------
-
-To check if everything went well, you can run the following tests
-(see how to test in ``./doc/tests.rst``):
-
-* ``./test/PronounceableWord/Tests/Configuration/LetterTypesTest.php``;
-* ``./test/PronounceableWord/Tests/Configuration/LinkedLettersTest.php``;
-* ``./test/PronounceableWord/Tests/Configuration/LinkedLettersAndTypesTest.php``;
-* ``./test/PronounceableWord/Tests/Configuration/GeneratorTest.php``.
-
 Examples
 ========
 
 Here are some short configuration examples, to show how it works::
 
     <?php
-    // File "./src/PronounceableWord/Configuration/LinkedLetters.php".
+    // File copied: "./vendor/PronounceableWord/src/PronounceableWord/Configuration/LinkedLetters.php"
+    // into: "./Configuration/LinkedLetters.php"
     
-    class PronounceableWord_Configuration_LinkedLetters {
-        public static $lettersWithLinkedLetters = array(
+    class My_Configuration_LinkedLetters {
+        public $lettersWithLinkedLetters = array(
             'a' => 'bc',
             'b' => 'ac',
             'c' => 'a0',
@@ -93,10 +83,11 @@ Here are some short configuration examples, to show how it works::
     }
 
     <?php
-    // File "./src/PronounceableWord/Configuration/LetterTypes.php".
+    // File copied: "./vendor/PronounceableWord/src/PronounceableWord/Configuration/LetterTypes.php"
+    // into: "./Configuration/LetterTypes.php"
 
-    class PronounceableWord_Configuration_LetterTypes {
-        public static $letterTypesWithLetters = array(
+    class My_Configuration_LetterTypes {
+        public $letterTypesWithLetters = array(
             'vowels' => 'a',
             'consonants' => 'bc',
             'numbers' => '0',
@@ -104,11 +95,12 @@ Here are some short configuration examples, to show how it works::
     }
 
     <?php
-    // File "./src/PronounceableWord/Configuration/Generator.php".
+    // File copied: "./vendor/PronounceableWord/src/PronounceableWord/Configuration/Generator.php"
+    // into: "./Configuration/Generator.php"
 
-    class PronounceableWord_Configuration_Generator {
-        public static $maximumConsecutiveTypesAtTheBegining = 1;
-        public static $maximumConsecutiveTypesInTheWord = 2;
+    class My_Configuration_Generator {
+        public $maximumConsecutiveTypesAtTheBegining = 1;
+        public $maximumConsecutiveTypesInTheWord = 2;
     }
 
 This configuration is fine:
@@ -117,3 +109,26 @@ This configuration is fine:
 * there are at least two different types;
 * every letters are present in the letter types;
 * the number of consecutive types are strictly positives.
+
+To use it, just set them into the container::
+
+    <?php
+    // File "/index.php".
+
+    require_once dirname(__FILE__) . '/vendor/PronounceableWord/src/PronounceableWord/DependencyInjectionContainer.php';
+    require_once dirname(__FILE__) . '/Configuration/LinkedLetters.php';
+    require_once dirname(__FILE__) . '/Configuration/LetterTypes.php';
+    require_once dirname(__FILE__) . '/Configuration/Generator.php';
+
+    define('MINIMUM_LENGTH', 5);
+    define('MAXIMUM_LENGTH', 11);
+
+    $length = rand(MINIMUM_LENGTH, MAXIMUM_LENGTH);
+
+    $container = new PronounceableWord_DependencyInjectionContainer();
+    $container->configurations['LinkedLetters'] = new My_Configuration_LinkedLetters();
+    $container->configurations['LetterTypes'] = new My_Configuration_LetterTypes();
+    $container->configurations['Generator'] = new My_Configuration_Generator();
+
+    $generator = $container->getGenerator();
+    $word = $generator->generateWordOfGivenLength($length);

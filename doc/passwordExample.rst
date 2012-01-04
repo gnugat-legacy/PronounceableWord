@@ -18,22 +18,23 @@ First, get the last stable version, and put it in an accessible directory::
     <?php
     // File "/index.php".
 
-    require_once dirname(__FILE__) . '/vendors/PronounceableWord/src/PronounceableWord/Generator.php';
+    require_once dirname(__FILE__) . '/vendor/PronounceableWord/src/PronounceableWord/Generator.php';
 
 For now, you should have a fully operationnal generator::
 
     <?php
     // File "/index.php".
 
-    require_once dirname(__FILE__) . '/vendors/PronounceableWord/src/PronounceableWord/Generator.php';
+    require_once dirname(__FILE__) . '/vendor/PronounceableWord/src/PronounceableWord/DependencyInjectionContainer.php';
 
-    define('MINIMUM_LENGTH', 4);
-    define('MAXIMUM_LENGTH', 8);
+    define('MINIMUM_LENGTH', 5);
+    define('MAXIMUM_LENGTH', 11);
 
     $length = rand(MINIMUM_LENGTH, MAXIMUM_LENGTH);
 
-    $generator = new PronounceableWord_Generator();
-    $generator->generateWordOfGivenLength($length);
+    $container = new PronounceableWord_DependencyInjectionContainer();
+    $generator = $container->getGenerator();
+    $password = $generator->generateWordOfGivenLength($length);
 
 Configuration
 =============
@@ -44,12 +45,13 @@ that password should also contain integers.
 Linked letters configuration
 ----------------------------
 
-The first thing is to tweak the linked letters to add integers::
+The first thing is to create your own linked letters configuration, with
+integers::
 
     <?php
-    // File "./vendors/PronounceableWord/src/PronounceableWord/Configuration/LinkedLetters.php"
-    class PronounceableWord_Configuration_LinkedLetters {
-        public static $lettersWithLinkedLetters = array(
+    // File "./Configuration/LinkedLetters.php"
+    class My_Configuration_LinkedLetters {
+        public $lettersWithLinkedLetters = array(
             'a' => 'abcdefhiklmnorstuvwxyz0123456789',
             'b' => 'abeiloruy0123456789',
             'c' => 'acehikloruy0123456789',
@@ -91,68 +93,41 @@ The first thing is to tweak the linked letters to add integers::
 Letter type configuration
 -------------------------
 
-Then tweak the letter types to add integers::
+Then create the letter types configuration with integers::
 
     <?php
-    // File "./vendors/PronounceableWord/src/PronounceableWord/Configuration/LetterTypes.php"
-    class PronounceableWord_Configuration_LetterTypes {
-        public static $letterTypesWithLetters = array(
+    // File "./Configuration/LetterTypes.php"
+    class My_Configuration_LetterTypes {
+        public $letterTypesWithLetters = array(
             'voyels' => 'aeiouy',
             'consonants' => 'bcdfghjklmnprstvwxz',
             'integers' => '0123456789',
         );
     }
 
-Testing the new configuration
-=============================
+Adding your configuration
+-------------------------
 
-To make sure that the new configuration won't make PronounceableWord
-crash, be safe by testing it.
+Finally, simply add your configuration into the container:
 
-Installing PHPUnit
-------------------
+    <?php
+    // File "/index.php".
 
-First, install PHPUnit (https://github.com/sebastianbergmann/phpunit/) (>= 3.5).
-The best way to do so is to use PEAR by following these instructions:
-http://www.phpunit.de/manual/3.0/en/installation.html
+    require_once dirname(__FILE__) . '/vendor/PronounceableWord/src/PronounceableWord/DependencyInjectionContainer.php';
+    require_once dirname(__FILE__) . './Configuration/LinkedLetters.php';
+    require_once dirname(__FILE__) . './Configuration/LetterTypes.php';
 
-Installing PEAR
----------------
+    define('MINIMUM_LENGTH', 5);
+    define('MAXIMUM_LENGTH', 11);
 
-PEAR (http://pear.php.net/) is necessary to use PHPUnit. To install it, follow
-these instructions: http://pear.php.net/manual/en/installation.getting.php
+    $length = rand(MINIMUM_LENGTH, MAXIMUM_LENGTH);
 
-If you are on Windows, and using WAMP or EasyPHP (or maybe others web
-development plateforms), you might encounter the following error::
+    $container = new PronounceableWord_DependencyInjectionContainer();
+    $container->configurations['LinkedLetters'] = new My_Configuration_LinkedLetters();
+    $container->configurations['LetterTypes'] = new My_Configuration_LetterTypes();
 
-    phar "C:\wamp\bin\php\php5.3.0\PEAR\go-pear.phar" does not have a signature PHP Warning: require_once(phar://go-pear.par/index.php): failed to open stream: phar error: invalid url or non-existent phar "phar://go-pear.phar/index.php" in C:\wamp\bin\php\php5.3.0\PEAR\go-pear.phar on line 1236
-
-    Warning: require_once(phar://go-pear.par/index.php): failed to open stream: phar error: invalid url or non-existent phar "phar://go-pear.phar/index.php" in C:\wamp\bin\php\php5.3.0\PEAR\go-pear.phar on line 1236 Press any key to continue...
-
-This is because the PHP setting "phar.require_hash" is set to "On" by default.
-If you set it to "Off" in your "php.ini", you should be able to continue.
-
-Testing
--------
-
-To test your configuration, just run the following command in CLI::
-
-    phpunit ./vendors/PronounceableWord/test
-
-In this example, no errors should occur. If you encounter an error in your
-custom configuration, it might be for the folowing reasons:
-
-* a letter from ``PronounceableWord_Configuration_LinkedLetters->lettersWithLinkedLetters`` might
-  not be present in at least one linked letters;
-* a linked letter from ``PronounceableWord_Configuration_LinkedLetters->lettersWithLinkedLetters``
-  might not be present in letters;
-* a letter from ``PronounceableWord_Configuration_LetterTypes->letterTypesWithLetters`` might be
-  present in more than one type;
-* a letter from ``PronounceableWord_Configuration_LinkedLetters->lettersWithLinkedLetters`` might
-  not be present in types from
-  ``PronounceableWord_Configuration_LetterTypes->letterTypesWithLetters``;
-* a letter from ``PronounceableWord_Configuration_LinkedLetters->lettersWithLinkedLetters`` might
-  not have at least one letter of a different type.
+    $generator = $container->getGenerator();
+    $password = $generator->generateWordOfGivenLength($length);
 
 Conclusion
 ==========
@@ -182,14 +157,20 @@ And::
     <?php
     // File "/index.php".
 
-    require_once dirname(__FILE__) . '/vendors/PronounceableWord/src/PronounceableWord/Generator.php';
+    require_once dirname(__FILE__) . '/vendor/PronounceableWord/src/PronounceableWord/DependencyInjectionContainer.php';
+    require_once dirname(__FILE__) . './Configuration/LinkedLetters.php';
+    require_once dirname(__FILE__) . './Configuration/LetterTypes.php';
 
-    define('MINIMUM_LENGTH', 4);
-    define('MAXIMUM_LENGTH', 8);
+    define('MINIMUM_LENGTH', 5);
+    define('MAXIMUM_LENGTH', 11);
 
     $length = rand(MINIMUM_LENGTH, MAXIMUM_LENGTH);
 
-    $generator = new PronounceableWord_Generator();
+    $container = new PronounceableWord_DependencyInjectionContainer();
+    $container->configurations['LinkedLetters'] = new My_Configuration_LinkedLetters();
+    $container->configurations['LetterTypes'] = new My_Configuration_LetterTypes();
+
+    $generator = $container->getGenerator();
     $password = $generator->generateWordOfGivenLength($length);
 
     $password = addUppercase($password);
