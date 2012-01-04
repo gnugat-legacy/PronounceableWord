@@ -41,8 +41,6 @@ just copy and modify as you wish the files in the
 configuration classes to the container (see how to configure in
 ``./doc/configuration.rst``).
 
-Don't forget to run tests afterward.
-
 Tests
 -----
 
