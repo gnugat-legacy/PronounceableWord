@@ -44,14 +44,15 @@ insulting::
     // File "/index.php".
 
     require_once dirname(__FILE__) . '/OffensiveAndInsultingWords.php';
-    require_once dirname(__FILE__) . '/vendors/PronounceableWord/src/PronounceableWord/Generator.php';
+    require_once dirname(__FILE__) . '/vendor/PronounceableWord/src/PronounceableWord/DependencyInjectionContainer.php';
 
     define('MINIMUM_LENGTH', 5);
     define('MAXIMUM_LENGTH', 11);
 
     $length = rand(MINIMUM_LENGTH, MAXIMUM_LENGTH);
 
-    $generator = new PronounceableWord_Generator();
+    $container = new PronounceableWord_DependencyInjectionContainer();
+    $generator = $container->getGenerator();
     $offensiveAndInsultingWordManager = new OffensiveAndInsultingWords();
 
     $word = $generator->generateWordOfGivenLength($length);
