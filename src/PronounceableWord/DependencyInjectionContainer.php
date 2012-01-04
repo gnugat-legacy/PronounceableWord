@@ -34,9 +34,9 @@ class PronounceableWord_DependencyInjectionContainer {
 
         $letterTypes = new PronounceableWord_LetterTypes($this->configurations['LetterTypes']);
         $lastLettersConsecutiveTypes = new PronounceableWord_LastLettersConsecutiveTypes($letterTypes);
-        $generator = new $generatorClass($this->getLinkedLetters(), $letterTypes, $lastLettersConsecutiveTypes, $this->configurations['Generator']);
+        $generatorInstance = new $generatorClass($this->getLinkedLetters(), $letterTypes, $lastLettersConsecutiveTypes, $this->configurations['Generator']);
 
-        return $generator;
+        return $generatorInstance;
     }
 
     public function getLinkedLetters() {
