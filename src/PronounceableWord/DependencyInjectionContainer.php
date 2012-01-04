@@ -26,6 +26,7 @@ class PronounceableWord_DependencyInjectionContainer {
         $this->configurations['LetterTypes'] = new PronounceableWord_Configuration_LetterTypes();
 
         $this->classNames['LinkedLetters'] = 'PronounceableWord_LinkedLetters';
+        $this->classNames['LetterTypes'] = 'PronounceableWord_LetterTypes';
         $this->classNames['Generator'] = 'PronounceableWord_Generator';
     }
 
@@ -34,7 +35,12 @@ class PronounceableWord_DependencyInjectionContainer {
 
         $letterTypes = new PronounceableWord_LetterTypes($this->configurations['LetterTypes']);
         $lastLettersConsecutiveTypes = new PronounceableWord_LastLettersConsecutiveTypes($letterTypes);
-        $generatorInstance = new $generatorClass($this->getLinkedLetters(), $letterTypes, $lastLettersConsecutiveTypes, $this->configurations['Generator']);
+        $generatorInstance = new $generatorClass(
+                $this->getLinkedLetters(),
+                $this->getLetterTypes(),
+                $lastLettersConsecutiveTypes,
+                $this->configurations['Generator']
+        );
 
         return $generatorInstance;
     }
@@ -44,5 +50,12 @@ class PronounceableWord_DependencyInjectionContainer {
         $linkedLettersInstance = new $linkedLettersClass($this->configurations['LinkedLetters']);
 
         return $linkedLettersInstance;
+    }
+
+    public function getLetterTypes() {
+        $lettersTypesClass = $this->classNames['LetterTypes'];
+        $lettersTypesInstance = new $lettersTypesClass($this->configurations['LetterTypes']);
+
+        return $lettersTypesInstance;
     }
 }
