@@ -13,7 +13,7 @@
 require_once dirname(__FILE__) . '/../src/PronounceableWord/DependencyInjectionContainer.php';
 
 define('MINIMUM_LENGTH', 4);
-define('MAXIMUM_LENGTH', 12);
+define('MAXIMUM_LENGTH', 9);
 
 $container = new PronounceableWord_DependencyInjectionContainer();
 $generator = $container->getGenerator();
