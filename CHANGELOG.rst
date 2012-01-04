@@ -9,9 +9,10 @@ where XXX is the change hash.
 To get the diff between two versions, go to https://github.com/gnugat/PronounceableWord/compare/X.Y.Z...A.B.C
 where X.Y.Z and A.B.C are the tag names.
 
-2.0.0
------
+2.0.0 (2012-01)
+---------------
 
+* 01a495a: using lower probability for LinkedLetters configuration;
 * 8b27028: using a dependency injection container;
 * 24bd26c: using dependency injection pattern;
 * fe00216: complying to PSR-0 standard;
