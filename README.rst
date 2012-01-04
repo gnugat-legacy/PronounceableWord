@@ -53,10 +53,15 @@ Examples
 Here is a sample of examples that can be generated (use the
 ``./bin/generateExamples.php`` script for more):
 
-====== ==== ======== ============
-Length 5    8        11
-====== ==== ======== ============
-====== ==== ======== ============
+======= ====== ======= ======== =========
+Length  5      6       7        8
+======= ====== ======= ======== =========
+1       vicas  panori  eropops  absugrit
+2       ramsa  verifu  simbous  nimpiowi
+3       kiclu  impriar rubleru  entumecu
+4       posup  bivary  kitocra  vemolior
+5       utler  rugisi  kanomev  pactabie
+======= ====== ======= ======== =========
 
 Algorithm
 =========
