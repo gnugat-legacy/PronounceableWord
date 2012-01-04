@@ -18,18 +18,18 @@ require_once dirname(__FILE__) . '/Generator.php';
 
 class PronounceableWord_DependencyInjectionContainer {
     public $configurations = array();
-    public $classes = array();
+    public $classNames = array();
 
     public function  __construct() {
         $this->configurations['Generator'] = new PronounceableWord_Configuration_Generator();
         $this->configurations['LinkedLetters'] = new PronounceableWord_Configuration_LinkedLetters();
         $this->configurations['LetterTypes'] = new PronounceableWord_Configuration_LetterTypes();
 
-        $this->classes['Generator'] = 'PronounceableWord_Generator';
+        $this->classNames['Generator'] = 'PronounceableWord_Generator';
     }
 
     public function getGenerator() {
-        $generatorClass = $this->classes['Generator'];
+        $generatorClass = $this->classNames['Generator'];
 
         $linkedLetters = new PronounceableWord_LinkedLetters($this->configurations['LinkedLetters']);
         $letterTypes = new PronounceableWord_LetterTypes($this->configurations['LetterTypes']);

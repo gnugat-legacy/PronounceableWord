@@ -11,10 +11,10 @@
 require_once dirname(__FILE__) . '/../../../src/PronounceableWord/DependencyInjectionContainer.php';
 
 class PronounceableWord_Tests_DependencyInjectionContainerTest extends PHPUnit_Framework_TestCase {
-    public function testClasses() {
+    public function testClassNames() {
         $container = new PronounceableWord_DependencyInjectionContainer();
 
-        foreach ($container->classes as $className => $class) {
+        foreach ($container->classNames as $className => $class) {
             $completeClassName = 'PronounceableWord_' . $className;
             $getMethodName = 'get' . $className;
 
