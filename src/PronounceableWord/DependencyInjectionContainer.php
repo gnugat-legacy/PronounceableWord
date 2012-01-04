@@ -20,16 +20,16 @@ class PronounceableWord_DependencyInjectionContainer {
     public $configurations = array();
 
     public function  __construct() {
-        $this->configurations['generator'] = new PronounceableWord_Configuration_Generator();
-        $this->configurations['linkedLetters'] = new PronounceableWord_Configuration_LinkedLetters();
-        $this->configurations['letterTypes'] = new PronounceableWord_Configuration_LetterTypes();
+        $this->configurations['Generator'] = new PronounceableWord_Configuration_Generator();
+        $this->configurations['LinkedLetters'] = new PronounceableWord_Configuration_LinkedLetters();
+        $this->configurations['LetterTypes'] = new PronounceableWord_Configuration_LetterTypes();
     }
 
     public function getGenerator() {
-        $linkedLetters = new PronounceableWord_LinkedLetters($this->configurations['linkedLetters']);
-        $letterTypes = new PronounceableWord_LetterTypes($this->configurations['letterTypes']);
+        $linkedLetters = new PronounceableWord_LinkedLetters($this->configurations['LinkedLetters']);
+        $letterTypes = new PronounceableWord_LetterTypes($this->configurations['LetterTypes']);
         $lastLettersConsecutiveTypes = new PronounceableWord_LastLettersConsecutiveTypes($letterTypes);
-        $generator = new PronounceableWord_Generator($linkedLetters, $letterTypes, $lastLettersConsecutiveTypes, $this->configurations['generator']);
+        $generator = new PronounceableWord_Generator($linkedLetters, $letterTypes, $lastLettersConsecutiveTypes, $this->configurations['Generator']);
 
         return $generator;
     }

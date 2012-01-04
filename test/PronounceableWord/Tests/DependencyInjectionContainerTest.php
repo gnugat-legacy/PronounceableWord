@@ -22,7 +22,7 @@ class PronounceableWord_Tests_DependencyInjectionContainerTest extends PHPUnit_F
         $container = new PronounceableWord_DependencyInjectionContainer();
 
         foreach ($container->configurations as $class => $configuration) {
-            $configurationClass = 'PronounceableWord_Configuration_' . ucfirst($class);
+            $configurationClass = 'PronounceableWord_Configuration_' . $class;
 
             $this->assertInstanceOf($configurationClass, $configuration);
         }
