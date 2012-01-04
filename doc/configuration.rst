@@ -12,8 +12,8 @@ using there statistical study of English text.
 
 Some changes have been applied:
 
-* only letters with a probability superior to 0.001 have been selected;
-* the letter 'q' has been removed.
+* only letters with a probability superior to 0.01 have been selected;
+* the letters 'j' and 'q' have been removed.
 
 How to customize the configuration
 ==================================
