@@ -10,7 +10,6 @@ class PronounceableWord_Configuration_LinkedLetters {
         'g' => 'aeghilnorsu',
         'h' => 'aeiortu',
         'i' => 'acdefglmnorstv',
-        'j' => 'aeou',
         'k' => 'aeilnos',
         'l' => 'adefilostuy',
         'm' => 'abeimoprsuy',
