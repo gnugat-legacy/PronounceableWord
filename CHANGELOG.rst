@@ -12,6 +12,7 @@ where X.Y.Z and A.B.C are the tag names.
 2.0.0
 -----
 
+* 24bd26c: using dependency injection pattern;
 * fe00216: complying to PSR-0 standard;
 * c6c7ea1: importing documentation from wiki.
 
