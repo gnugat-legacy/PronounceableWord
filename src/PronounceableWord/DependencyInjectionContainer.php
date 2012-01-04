@@ -17,10 +17,10 @@ require_once dirname(__FILE__) . '/LastLettersConsecutiveTypes.php';
 require_once dirname(__FILE__) . '/Generator.php';
 
 class PronounceableWord_DependencyInjectionContainer {
-    public $parameters = array();
+    public $configurations = array();
 
     public function  __construct() {
-        $this->parameters['generator.configuration'] = new PronounceableWord_Configuration_Generator();
+        $this->configurations['generator'] = new PronounceableWord_Configuration_Generator();
     }
 
     public function getGenerator() {
@@ -29,7 +29,7 @@ class PronounceableWord_DependencyInjectionContainer {
         $linkedLetters = new PronounceableWord_LinkedLetters($linkedLettersConfiguration);
         $letterTypes = new PronounceableWord_LetterTypes($letterTypesConfiguration);
         $lastLettersConsecutiveTypes = new PronounceableWord_LastLettersConsecutiveTypes($letterTypes);
-        $generator = new PronounceableWord_Generator($linkedLetters, $letterTypes, $lastLettersConsecutiveTypes, $this->parameters['generator.configuration']);
+        $generator = new PronounceableWord_Generator($linkedLetters, $letterTypes, $lastLettersConsecutiveTypes, $this->configurations['generator']);
 
         return $generator;
     }
