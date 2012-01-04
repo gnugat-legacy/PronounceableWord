@@ -21,13 +21,13 @@ class PronounceableWord_DependencyInjectionContainer {
 
     public function  __construct() {
         $this->configurations['generator'] = new PronounceableWord_Configuration_Generator();
+        $this->configurations['linkedLetters'] = new PronounceableWord_Configuration_LinkedLetters();
+        $this->configurations['letterTypes'] = new PronounceableWord_Configuration_LetterTypes();
     }
 
     public function getGenerator() {
-        $linkedLettersConfiguration = new PronounceableWord_Configuration_LinkedLetters();
-        $letterTypesConfiguration = new PronounceableWord_Configuration_LetterTypes();
-        $linkedLetters = new PronounceableWord_LinkedLetters($linkedLettersConfiguration);
-        $letterTypes = new PronounceableWord_LetterTypes($letterTypesConfiguration);
+        $linkedLetters = new PronounceableWord_LinkedLetters($this->configurations['linkedLetters']);
+        $letterTypes = new PronounceableWord_LetterTypes($this->configurations['letterTypes']);
         $lastLettersConsecutiveTypes = new PronounceableWord_LastLettersConsecutiveTypes($letterTypes);
         $generator = new PronounceableWord_Generator($linkedLetters, $letterTypes, $lastLettersConsecutiveTypes, $this->configurations['generator']);
 
