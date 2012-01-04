@@ -25,10 +25,10 @@ class PronounceableWord_Tests_DependencyInjectionContainerTest extends PHPUnit_F
     public function testConfigurations() {
         $container = new PronounceableWord_DependencyInjectionContainer();
 
-        foreach ($container->configurations as $class => $configuration) {
-            $configurationClass = 'PronounceableWord_Configuration_' . $class;
+        foreach ($container->configurations as $className => $configurationInstance) {
+            $configurationClassName = 'PronounceableWord_Configuration_' . $className;
 
-            $this->assertInstanceOf($configurationClass, $configuration);
+            $this->assertInstanceOf($configurationClassName, $configurationInstance);
         }
     }
 }
