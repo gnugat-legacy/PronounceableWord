@@ -17,4 +17,10 @@ class PronounceableWord_Tests_DependencyInjectionContainerTest extends PHPUnit_F
 
         $this->assertInstanceOf('PronounceableWord_Generator', $generator);
     }
+
+    public function testGetGeneratorConfiguration() {
+        $container = new PronounceableWord_DependencyInjectionContainer();
+
+        $this->assertInstanceOf('PronounceableWord_Configuration_Generator', $container->generatorConfiguration);
+    }
 }
