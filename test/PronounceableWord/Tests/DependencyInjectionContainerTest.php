@@ -20,6 +20,18 @@ class PronounceableWord_Tests_DependencyInjectionContainerTest extends PHPUnit_F
         }
     }
 
+
+    public function testClassNamesAndInstances() {
+        $container = new PronounceableWord_DependencyInjectionContainer();
+
+        foreach ($container->classNames as $classType => $className) {
+            $getMethodName = 'get' . $classType;
+            $instance = $container->{$getMethodName}();
+
+            $this->assertInstanceOf($className, $instance);
+        }
+    }
+
     public function testConfigurations() {
         $container = new PronounceableWord_DependencyInjectionContainer();
 
