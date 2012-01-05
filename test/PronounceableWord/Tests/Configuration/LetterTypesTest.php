@@ -11,13 +11,14 @@
 require_once dirname(__FILE__) . '/../../../../src/PronounceableWord/Configuration/LetterTypes.php';
 
 class PronounceableWord_Tests_Configuration_LetterTypesTest extends PHPUnit_Framework_TestCase {
+    public function setUp() {
+        $this->configuration = new PronounceableWord_Configuration_LetterTypes();
+    }
     public function testAreLettersInOnlyOneType() {
-        $configuration = new PronounceableWord_Configuration_LetterTypes();
-
-        foreach ($configuration->letterTypesWithLetters as $currentType => $lettersOfCurrentType) {
+        foreach ($this->configuration->letterTypesWithLetters as $currentType => $lettersOfCurrentType) {
             $maximumLetterIndex = strlen($lettersOfCurrentType);
             $areLettersInOnlyOneType = true;
-            foreach ($configuration->letterTypesWithLetters as $checkedType => $lettersOfCheckedType) {
+            foreach ($this->configuration->letterTypesWithLetters as $checkedType => $lettersOfCheckedType) {
                 if ($currentType !== $checkedType) {
                     for ($letterIndex = 0; $letterIndex < $maximumLetterIndex; $letterIndex++) {
                         $isLetterInLetters = strpos($lettersOfCheckedType, $lettersOfCurrentType[$letterIndex]);
