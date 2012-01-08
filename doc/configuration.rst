@@ -99,6 +99,8 @@ Here is a complete example, to show how it works.
 Customizing
 -----------
 
+The configuration::
+
     <?php
     // File copied: "./vendor/PronounceableWord/src/PronounceableWord/Configuration/LinkedLetters.php"
     // into: "./Configuration/LinkedLetters.php"
