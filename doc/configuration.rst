@@ -132,3 +132,27 @@ To use it, just set them into the container::
 
     $generator = $container->getGenerator();
     $word = $generator->generateWordOfGivenLength($length);
+
+Testing your configuration
+==========================
+
+To make sure your customized configuration is coherent and won't make
+**PronounceableWord** crash, you can test it as follow:
+
+1. create a unit test extending the configuration test;
+2. override the ``setUp`` method by initializing the ``configuration``
+   attribute with your own configuration class.
+
+Here is an example for the configuration of ``LinkedLetters``::
+
+    <?php
+    // File /test/Configuration/LinkedLettersTest.php
+
+    require_once dirname(__FILE__) . '/../../vendor/PronounceableWord/test/PronounceableWord/Tests/Configuration/LinkedLettersTest.php';
+    require_once dirname(__FILE__) . '/../../Configuration/LinkedLetters.php';
+
+    class My_Tests_Configuration_LinkedLettersTest extends PronounceableWord_Tests_Configuration_LinkedLettersTest {
+        public function setUp() {
+            $this->configuration = new PronounceableWord_Configuration_LinkedLetters();
+        }
+    }
