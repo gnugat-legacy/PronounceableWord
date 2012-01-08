@@ -16,6 +16,10 @@ Installation and usage
 
 First, get the last stable version, and put it in an accessible directory.
 
+You can use composer to do so (http://packagist.org/), by adding in the
+``require`` of your file ``./composer.json`` the following entry:
+``"gnugat/PronounceableWord": "*"``.
+
 You should have a fully operationnal pronounceable word generator::
 
     <?php
