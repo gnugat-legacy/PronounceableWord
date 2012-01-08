@@ -9,8 +9,8 @@ where XXX is the change hash.
 To get the diff between two versions, go to https://github.com/gnugat/PronounceableWord/compare/X.Y.Z...A.B.C
 where X.Y.Z and A.B.C are the tag names.
 
-2.0.0 (2012-01)
----------------
+2.0.0 (2012-01-08)
+------------------
 
 * b9b3583: compatibility woth composer;
 * 01a495a: using lower probability for LinkedLetters configuration;
