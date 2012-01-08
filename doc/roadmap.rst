@@ -28,5 +28,4 @@ implemented:
 * using, as the linked letters default configuration, letters from the Data
   Compression study superior to 0.01 instead of 0.001:
   http://www.data-compression.com/english.shtml#second;
-* being compatible with composer;
-* having a less verbose documentation.
+* being compatible with composer.
