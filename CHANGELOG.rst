@@ -12,6 +12,7 @@ where X.Y.Z and A.B.C are the tag names.
 2.0.0 (2012-01)
 ---------------
 
+* b9b3583: compatibility woth composer;
 * 01a495a: using lower probability for LinkedLetters configuration;
 * 8b27028: using a dependency injection container;
 * 24bd26c: using dependency injection pattern;
