@@ -1,7 +1,56 @@
 Configuration
 =============
 
-This page will document the default configuration, and how to customize it.
+To generate pronounceable words, **PronouceableWord** uses three types of
+configuration:
+
+================ ================================ ================================================
+Configuration    What it defines                  What it allows
+================ ================================ ================================================
+Linked letters   The link between letters         To know which letters can follow a letter
+Letter types     The types of the letters         To alternate between consonants, vowels, etc...
+Generator        The number of consecutive types  To know when to alternate the types
+================ ================================ ================================================
+
+PronouceableWord_Configuration_LinkedLetters
+--------------------------------------------
+
+This class contains only one attribute (``lettersWithLinkedLetters``), which
+is an associative array:
+
+Key
+  A string of only one character representing the letter.
+
+Value
+  A string representing the letters supposed to follow well the **key**.
+
+For example, having ``'b' => 'a'`` will allow to compose ``'ba'``.
+
+PronouceableWord_Configuration_LetterTypes
+------------------------------------------
+
+This class contains only one attribute (``letterTypesWithLetters``), which is
+an associative array:
+
+Key
+  The name of the type.
+
+Value
+  A string containing the letters of this type.
+
+For example, defining the vowels would be: ``'vowels' => 'aeiouy'``.
+
+PronounceableWord_Configuration_Generator
+-----------------------------------------
+
+This class contains two attributes which must be integers superior to 1.:
+
+===================================== ==============================================================================
+Attribute                             Example value and effect
+===================================== ==============================================================================
+maximumConsecutiveTypesAtTheBegining  1: if the first letter is a vowel, the second will be a consonant
+maximumConsecutiveTypesInTheWord      2: if the second and third letters are vowels, the fourth will be a consonant
+===================================== ==============================================================================
 
 Default configuration
 =====================
@@ -18,56 +67,39 @@ Some changes have been applied:
 How to customize the configuration
 ==================================
 
-The configuration is present to allow the PHP library **PronouceableWord** to
-be flexible enough to meet your expectations. Follow the guide.
+To customize the configuration, you need to:
 
-Linked letters configuration
-----------------------------
+1. copy the configuration classes in
+   ``./vendor/PronounceableWord/src/PronounceableWord/Configuration`` to your
+   project configuration (e.g. ``./Configuration``);
+2. change the name of your configuration classes to avoid confusion, (e.g.
+   replacing the prefix ``PronounceableWord`` by ``My``);
+3. change the content as you wish;
+4. set the configuration attributes in the dependency injection container
+   with your own classes.
 
-Every letters can be linked to each other to form words. However, for a word
-to be pronounceable, a letter can't be linked with every other. This is what
-the class ``PronounceableWord_Configuration_LinkedLetters`` is for: setting to
-each letters their own linked letters.
+How to test the configuration
+=============================
 
-In order to make an accessible and more readable configuration, this setting
-is saved in an associative array, where the key is the letter and the
-associated string is the set of linked letters. You can modifiy existing
-linked letters by adding or removing them, and you can add or remove a letter
-with its linked letters.
+To make sure your customized configuration is coherent and won't make
+**PronounceableWord** crash, you can test it as follow:
 
-If you remove a letter, don't forget to remove it from every linked letters,
-and also for the ``PronounceableWord_Configuration_LetterTypes``.
+1. create a unit test extending the configuration test (from
+   ``./vendor/PronounceableWord/test/PronounceableWord/Tests/Configuration``);
+2. override the ``setUp`` method by initializing the ``configuration``
+   attribute with your own configuration class.
 
-If you add a new letter, don't forget to add it to the
-``PronounceableWord_Configuration_LetterTypes``.
+To learn more about how to test, see ``./doc/tests.srt``.
 
-Finally, make sure that each letters is associated to at least one letter of
-a different type.
+Full Example
+============
 
-Letter types configuration
---------------------------
+Here is a complete example, to show how it works.
 
-Consonants and vowels are the default types of the provided letters. It is of
-course possible to add new ones (integers, characters, etc..) or to remove some
-of them as long as there are still at least two types left.
+Customizing
+-----------
 
-In order to make an accessible and more readable configuration, this setting is
-saved in an associative array, where the key is the letter type and the
-associated string is the set of letters.
-
-Generator configuration
------------------------
-
-Finally, you can manage the number of consecutive letters of the same type
-occurs:
-
-* at the begining of the word;
-* in the middle of the word.
-
-Examples
-========
-
-Here are some short configuration examples, to show how it works::
+The configuration::
 
     <?php
     // File copied: "./vendor/PronounceableWord/src/PronounceableWord/Configuration/LinkedLetters.php"
@@ -110,6 +142,9 @@ This configuration is fine:
 * every letters are present in the letter types;
 * the number of consecutive types are strictly positives.
 
+Usage
+-----
+
 To use it, just set them into the container::
 
     <?php
@@ -133,17 +168,10 @@ To use it, just set them into the container::
     $generator = $container->getGenerator();
     $word = $generator->generateWordOfGivenLength($length);
 
-Testing your configuration
-==========================
+Testing
+-------
 
-To make sure your customized configuration is coherent and won't make
-**PronounceableWord** crash, you can test it as follow:
-
-1. create a unit test extending the configuration test;
-2. override the ``setUp`` method by initializing the ``configuration``
-   attribute with your own configuration class.
-
-Here is an example for the configuration of ``LinkedLetters``::
+To test it, create the following unit tests::
 
     <?php
     // File /test/Configuration/LinkedLettersTest.php
@@ -154,5 +182,29 @@ Here is an example for the configuration of ``LinkedLetters``::
     class My_Tests_Configuration_LinkedLettersTest extends PronounceableWord_Tests_Configuration_LinkedLettersTest {
         public function setUp() {
             $this->configuration = new PronounceableWord_Configuration_LinkedLetters();
+        }
+    }
+
+    <?php
+    // File /test/Configuration/LetterTypesTest.php
+
+    require_once dirname(__FILE__) . '/../../vendor/PronounceableWord/test/PronounceableWord/Tests/Configuration/LetterTypesTest.php';
+    require_once dirname(__FILE__) . '/../../Configuration/LetterTypes.php';
+
+    class My_Tests_Configuration_LetterTypesTest extends PronounceableWord_Tests_Configuration_LetterTypesTest {
+        public function setUp() {
+            $this->configuration = new PronounceableWord_Configuration_LetterTypes();
+        }
+    }
+
+    <?php
+    // File /test/Configuration/GeneratorTest.php
+
+    require_once dirname(__FILE__) . '/../../vendor/PronounceableWord/test/PronounceableWord/Tests/Configuration/GeneratorTest.php';
+    require_once dirname(__FILE__) . '/../../Configuration/Generator.php';
+
+    class My_Tests_Configuration_GeneratorTest extends PronounceableWord_Tests_Configuration_GeneratorTest {
+        public function setUp() {
+            $this->configuration = new PronounceableWord_Configuration_Generator();
         }
     }

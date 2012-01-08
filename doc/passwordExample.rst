@@ -107,7 +107,7 @@ Then create the letter types configuration with integers::
 Adding your configuration
 -------------------------
 
-Finally, simply add your configuration into the container:
+Finally, simply add your configuration into the container::
 
     <?php
     // File "/index.php".
