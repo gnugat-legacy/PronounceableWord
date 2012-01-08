@@ -8,17 +8,20 @@
  * file that was distributed with this source code.
  */
 
-require_once dirname(__FILE__) . '/../config/LinkedLettersConfiguration.php';
+class PronounceableWord_LinkedLetters {
+    protected $configuration;
 
-class LinkedLetters {
+    public function  __construct($configuration) {
+        $this->configuration = $configuration;
+    }
     public function pickLetter() {
-        $pickedLetter = array_rand(LinkedLettersConfiguration::$lettersWithLinkedLetters);
+        $pickedLetter = array_rand($this->configuration->lettersWithLinkedLetters);
 
         return $pickedLetter;
     }
 
     public function pickLinkedLetter($letter) {
-        $linkedLetters = LinkedLettersConfiguration::$lettersWithLinkedLetters[$letter];
+        $linkedLetters = $this->configuration->lettersWithLinkedLetters[$letter];
 
         return $this->pickLetterFromGivenLetters($linkedLetters);
     }
@@ -34,7 +37,7 @@ class LinkedLetters {
     }
 
     public function pickLinkedLetterDifferentFromGivenLetters($letter, $letters) {
-        $linkedLetters = LinkedLettersConfiguration::$lettersWithLinkedLetters[$letter];
+        $linkedLetters = $this->configuration->lettersWithLinkedLetters[$letter];
 
         $letterChoices = $this->removeGivenLettersFromGivenLinkedLetters($letters, $linkedLetters);
 

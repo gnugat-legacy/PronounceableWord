@@ -8,12 +8,16 @@
  * file that was distributed with this source code.
  */
 
-require_once dirname(__FILE__) . '/../config/LetterTypesConfiguration.php';
+class PronounceableWord_LetterTypes {
+    protected $configuration;
 
-class LetterTypes {
+    public function  __construct($configuration) {
+        $this->configuration = $configuration;
+    }
+
     public function getLetterType($letter) {
         $type = '';
-        foreach (LetterTypesConfiguration::$letterTypesWithLetters as $letterType => $letters) {
+        foreach ($this->configuration->letterTypesWithLetters as $letterType => $letters) {
             if (false !== strpos($letters, $letter)) {
                 $type = $letterType;
                 break;
@@ -24,6 +28,6 @@ class LetterTypes {
     }
 
     public function getLettersOfGivenType($type) {
-        return LetterTypesConfiguration::$letterTypesWithLetters[$type];
+        return $this->configuration->letterTypesWithLetters[$type];
     }
 }

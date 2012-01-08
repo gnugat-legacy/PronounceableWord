@@ -8,23 +8,20 @@
  * file that was distributed with this source code.
  */
 
-require_once dirname(__FILE__) . '/config/PronounceableWordGeneratorConfiguration.php';
-require_once dirname(__FILE__) . '/lib/LinkedLetters.php';
-require_once dirname(__FILE__) . '/lib/LetterTypes.php';
-require_once dirname(__FILE__) . '/lib/LastLettersConsecutiveTypes.php';
-
-class PronounceableWordGenerator {
+class PronounceableWord_Generator {
     protected $word;
     protected $length;
 
     protected $linkedLetters;
     protected $letterTypes;
     protected $lastLettersConsecutiveTypes;
+    protected $configuration;
 
-    public function __construct() {
-        $this->linkedLetters = new LinkedLetters();
-        $this->letterTypes = new LetterTypes();
-        $this->lastLettersConsecutiveTypes = new LastLettersConsecutiveTypes();
+    public function __construct($linkedLetter, $letterTypes, $lastLettersConsecutiveTypes, $configuration) {
+        $this->linkedLetters = $linkedLetter;
+        $this->letterTypes = $letterTypes;
+        $this->lastLettersConsecutiveTypes = $lastLettersConsecutiveTypes;
+        $this->configuration = $configuration;
     }
 
     public function generateWordOfGivenLength($givenLength) {
@@ -43,7 +40,7 @@ class PronounceableWordGenerator {
 
         if (0 === $this->length) {
             $pickedLetter = $this->pickFirstLetter();
-        } elseif ($this->length <= PronounceableWordGeneratorConfiguration::$maximumConsecutiveTypesAtTheBegining) {
+        } elseif ($this->length <= $this->configuration->maximumConsecutiveTypesAtTheBegining) {
             $pickedLetter = $this->pickLinkedLetterOfDifferentType($this->word[0]);
         } else {
             $pickedLetter = $this->pickLinkedLetterOfDifferentTypeIfLastLettersAreOfConsecutiveTypes();
@@ -68,7 +65,7 @@ class PronounceableWordGenerator {
         $consecutiveTypes = $this->lastLettersConsecutiveTypes->countFromWord($this->word);
 
         $pickedLetter = '';
-        if ($consecutiveTypes === PronounceableWordGeneratorConfiguration::$maximumConsecutiveTypesInTheWord) {
+        if ($consecutiveTypes === $this->configuration->maximumConsecutiveTypesInTheWord) {
             $pickedLetter = $this->pickLinkedLetterOfDifferentType($lastLetter);
         } else {
             $pickedLetter = $this->linkedLetters->pickLinkedLetter($lastLetter);

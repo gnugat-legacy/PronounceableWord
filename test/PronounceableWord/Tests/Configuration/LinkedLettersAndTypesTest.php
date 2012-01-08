@@ -8,15 +8,20 @@
  * file that was distributed with this source code.
  */
 
-require_once dirname(__FILE__) . '/../config/LinkedLettersConfiguration.php';
-require_once dirname(__FILE__) . '/../config/LetterTypesConfiguration.php';
-require_once dirname(__FILE__) . '/../lib/LetterTypes.php';
+require_once dirname(__FILE__) . '/../../../../src/PronounceableWord/Configuration/LinkedLetters.php';
+require_once dirname(__FILE__) . '/../../../../src/PronounceableWord/Configuration/LetterTypes.php';
+require_once dirname(__FILE__) . '/../../../../src/PronounceableWord/LetterTypes.php';
 
-class LinkedLettersAndTypesConfigurationTest extends PHPUnit_Framework_TestCase {
+class PronounceableWord_Tests_Configuration_LinkedLettersAndTypesTest extends PHPUnit_Framework_TestCase {
+    public function setUp() {
+        $this->letterTypesConfiguration = new PronounceableWord_Configuration_LetterTypes();
+        $this->linkedLettersConfiguration = new PronounceableWord_Configuration_LinkedLetters();
+    }
+
     public function testAreAllLettersFromLinkedLettersInLettersFromLetterTypes() {
-        foreach (LinkedLettersConfiguration::$lettersWithLinkedLetters as $letter => $linkedLettersToIgnore) {
+        foreach ($this->linkedLettersConfiguration->lettersWithLinkedLetters as $letter => $linkedLettersToIgnore) {
             $isLetterInTypes = false;
-            foreach (LetterTypesConfiguration::$letterTypesWithLetters as $lettersOfType) {
+            foreach ($this->letterTypesConfiguration->letterTypesWithLetters as $lettersOfType) {
                 $isLetterInLetters = strpos($lettersOfType, $letter);
 
                 if (false !== $isLetterInLetters) {
@@ -30,9 +35,10 @@ class LinkedLettersAndTypesConfigurationTest extends PHPUnit_Framework_TestCase 
     }
 
     public function testHaveLettersAtLeastOneLinkedLetterOfDifferentType() {
-        $letterTypes = new LetterTypes();
+        $letterTypes = new PronounceableWord_LetterTypes($this->letterTypesConfiguration);
+        $linkedLettersConfiguration = new PronounceableWord_Configuration_LinkedLetters();
 
-        foreach (LinkedLettersConfiguration::$lettersWithLinkedLetters as $letter => $linkedLetters) {
+        foreach ($this->linkedLettersConfiguration->lettersWithLinkedLetters as $letter => $linkedLetters) {
             $letterType = $letterTypes->getLetterType($letter);
 
             $hasOneDifferentType = false;

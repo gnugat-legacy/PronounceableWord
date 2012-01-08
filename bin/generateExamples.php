@@ -1,3 +1,5 @@
+#!/usr/bin/env php
+
 <?php
 /*
  * This file is part of the PronounceableWord library.
@@ -8,12 +10,13 @@
  * file that was distributed with this source code.
  */
 
-require_once dirname(__FILE__) . '/../PronounceableWordGenerator.php';
+require_once dirname(__FILE__) . '/../src/PronounceableWord/DependencyInjectionContainer.php';
 
 define('MINIMUM_LENGTH', 4);
-define('MAXIMUM_LENGTH', 12);
+define('MAXIMUM_LENGTH', 9);
 
-$generator = new PronounceableWordGenerator();
+$container = new PronounceableWord_DependencyInjectionContainer();
+$generator = $container->getGenerator();
 
 $maximumGenerationNumber = 20;
 for ($generationNumber = 0; $generationNumber < $maximumGenerationNumber; $generationNumber++) {
