@@ -24,10 +24,9 @@ implemented:
   https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md;
 * using the Dependency Injection design pattern to load configuration:
   http://en.wikipedia.org/wiki/Dependency_injection;
-* using an autoloader;
+* using Dependency Injection Container;
 * using, as the linked letters default configuration, letters from the Data
   Compression study superior to 0.01 instead of 0.001:
-  http://www.data-compression.com/english.shtml#second.
-
-The use of autoloader is no longer needed, thanks to the dependency injection
-container.
+  http://www.data-compression.com/english.shtml#second;
+* being compatible with composer;
+* having a less verbose documentation.
